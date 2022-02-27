@@ -10,7 +10,6 @@ from Configs.dm import Config
 from pyrogram import Client as ILovePDF
 from pyrogram.types import InlineKeyboardButton
 from pyrogram.types import InlineKeyboardMarkup
-from pyrogram.types import ReplyKeyboardMarkup
 
 
 
@@ -108,7 +107,7 @@ async def start(bot, message):
                     forceSubMsg.format(
                         message.from_user.first_name, message.chat.id
                     ),
-                    reply_markup = ReplyKeyboardMarkup(
+                    reply_markup = InlineKeyboardMarkup(
                         [
                             [
                                 InlineKeyboardButton(
