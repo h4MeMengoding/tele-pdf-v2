@@ -7,7 +7,7 @@
 from pdf import invite_link
 from pyrogram import filters
 from Configs.dm import Config
-from pyrogram import Client as ILovePDF
+from pyrogram import Client as InHame
 from pyrogram.types import InlineKeyboardButton
 from pyrogram.types import InlineKeyboardMarkup
 
@@ -19,49 +19,37 @@ from pyrogram.types import InlineKeyboardMarkup
 #--------> LOCAL VARIABLES
 #------------------->
 
-welcomeMsg = """Hey [{}](tg://user?id={})..!!
-This bot will helps you to do many things with pdf's 🥳
+welcomeMsg = """Halo [{}](tg://user?id={}) 👋 Bot ini akan membantu Anda melakukan banyak hal dengan pdf 
 
 Some of the main features are:
-◍ `Convert images to PDF`
-◍ `Convert PDF to images`
-◍ `Convert files to pdf`
-
-Update Channel: @ilovepdf_bot 💎
-
-[Source Code 🏆](https://github.com/nabilanavab/ilovepdf)
-[Write a feedback 📋](https://t.me/nabilanavabchannel/17?comment=10)"""
-
-
-UCantUse = "For Some Reason You Can't Use This Bot 🛑"
-
-
-forceSubMsg = """Wait [{}](tg://user?id={})..!!
-
-Due To The Huge Traffic Only Channel Members Can Use this Bot 🚶
-
-This Means You Need To Join The Below Mentioned Channel for Using Me!
-
-hit on "retry ♻️" after joining.. 😅"""
-
-
-aboutDev = """Owned By: @nabilanavab
-Update Channel: @ilovepdf_bot
-
-Now its easy to create your Own nabilanavab/ilovepdf bot
-
-[Source Code 🏆](https://github.com/nabilanavab/ilovepdf)
-[Write a feedback 📋](https://t.me/nabilanavabchannel/17?comment=10)"""
-
-
-exploreBotEdit = """
-[WORKING IN PROGRESS
-
-Join @ilovepdf_bot bot Updates 💎](https://t.me/ilovepdf_bot)
+➤ `Convert images to PDF`
+➤ `Convert PDF to images`
+➤ `Convert files to pdf`
 """
 
 
-foolRefresh = "വിളച്ചിലെടുക്കല്ലേ കേട്ടോ 😐"
+UCantUse = "Kamu telah di-BAN karena melanggar ketentuan"
+
+
+forceSubMsg = """Tunggu [{}](tg://user?id={})..!!
+
+Karena alasan traffic server maka hanya Anggota channel yang Dapat Menggunakan
+    
+Anda diwajibkan untuk bergabung kedalam channel.
+
+Klik "refresh" jika sudah bergabung.. 
+"""
+
+
+aboutDev = """Dev tampang jangan lupa diisi -zeyy"""
+
+
+exploreBotEdit = """
+[SEDANG DALAM PROSES
+"""
+
+
+foolRefresh = """Cie boong, masuk channel dulu baru bisa gunain yaa... 😐"""
 
 #--------------->
 #--------> config vars
@@ -77,7 +65,7 @@ ADMINS=Config.ADMINS
 #------------------->
 
 
-@ILovePDF.on_message(filters.private & ~filters.edited & filters.command(["start"]))
+@InHame.on_message(filters.private & ~filters.edited & filters.command(["start"]))
 async def start(bot, message):
         global invite_link
         await bot.send_chat_action(
@@ -178,7 +166,7 @@ back = filters.create(lambda _, __, query: query.data == "back")
 
 
 
-@ILovePDF.on_callback_query(strtDevEdt)
+@InHame.on_callback_query(strtDevEdt)
 async def _strtDevEdt(bot, callbackQuery):
     try:
         await callbackQuery.edit_message_text(
@@ -209,7 +197,7 @@ async def _strtDevEdt(bot, callbackQuery):
         print(e)
 
 
-@ILovePDF.on_callback_query(exploreBot)
+@InHame.on_callback_query(exploreBot)
 async def _exploreBot(bot, callbackQuery):
     try:
         await callbackQuery.edit_message_text(
@@ -236,7 +224,7 @@ async def _exploreBot(bot, callbackQuery):
         print(e)
 
 
-@ILovePDF.on_callback_query(back)
+@InHame.on_callback_query(back)
 async def _back(bot, callbackQuery):
     try:
         await callbackQuery.edit_message_text(
@@ -271,7 +259,7 @@ async def _back(bot, callbackQuery):
         print(e)
 
 
-@ILovePDF.on_callback_query(refresh)
+@InHame.on_callback_query(refresh)
 async def _refresh(bot, callbackQuery):
     try:
         # CHECK USER IN CHANNEL (REFRESH CALLBACK)
@@ -320,7 +308,7 @@ async def _refresh(bot, callbackQuery):
             print(e)
 
 
-@ILovePDF.on_callback_query(close)
+@InHame.on_callback_query(close)
 async def _close(bot, callbackQuery):
     try:
         await bot.delete_messages(
