@@ -1,0 +1,53 @@
+{
+	"name": "ilovepdf_bot",
+	"description": "A Telegram Bot that helps you to domany this with pdf.",
+	"keywords": [
+		"Telegram", "Telegram Bot", "pdf bot",
+		"ilovepdf", "nabilabavab", "python",
+		"ilovepdf_bot", "complete pdf bot"
+	],
+	"website": "https://github.com/nabilanavab/ilovepdf",
+	"repository": "https://github.com/nabilanavab/ilovepdf",
+	"logo": "https://te.legra.ph/file/b659b2e306bb766a44537.jpg",
+	"success_url": "https://github.com/nabilanavab/ilovepdf",
+	"stack": "heroku-20",
+	"env": {
+		"API_ID": {
+			"description": "API_ID from my.telegram.org",
+			"required": true
+		},
+		"API_HASH": {
+			"description": "API_ID from my.telegram.org",
+			"required": true
+		},
+		"API_TOKEN": {
+			"description": "API_TOKEN from @botfather",
+			"required": true
+		},
+		"UPDATE_CHANNEL": {
+			"description": "ChannelId if you need force Subscription",
+			"required": false
+		},
+		"CONVERT_API": {
+			"description": "ConvertAPI secret token",
+			"required": false
+		},
+		"MAX_FILE_SIZE": {
+			"description": "for preventing overload (in mb)",
+			"required": false
+		},
+		"OWNER_ID": {
+			"description": "No Use Yet.. :/",
+			"required": false
+		},
+		"BANNED_USER": {
+			"description": "No Use Yet.. :/",
+			"required": false
+		}
+	},
+	"buildpacks": [
+		{
+			"url": "heroku/python"
+		}
+	]
+}

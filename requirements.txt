@@ -1,0 +1,8 @@
+pyrogram
+tgcrypto
+pillow
+PyMuPdf
+PyPDF2
+convertapi
+PDFNetPython3==8.1.0
+pyromod
