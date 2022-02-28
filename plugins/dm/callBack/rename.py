@@ -60,7 +60,7 @@ async def _encrypt(bot, callbackQuery):
             return
         # DOWNLOADING MESSAGE
         downloadMessage = await callbackQuery.message.reply_text(
-            "`Downloding your pdf..` ⏳", quote=True
+            "`📥 - Mendownload PDF`", quote=True
         )
         # ADDS .pdf IF DONT HAVE AN EXTENSION
         if newName.text[-4:] == ".pdf":

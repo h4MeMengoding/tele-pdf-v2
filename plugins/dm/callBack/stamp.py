@@ -73,7 +73,7 @@ color = filters.create(lambda _, __, query: query.data.startswith(tuple(colors))
 async def _stamp(bot, callbackQuery):
     try:
         await callbackQuery.edit_message_text(
-            "__Add Stamp » Select Stamp:         \nTotal pages: unknown__ 😐",
+            "__Add Stamp » Select Stamp:         \nTotal halaman: unknown__ 😐",
             reply_markup = InlineKeyboardMarkup(
                 [
                     [
@@ -114,7 +114,7 @@ async def _Kstamp(bot, callbackQuery):
     try:
         _, number_of_pages = callbackQuery.data.split("|")
         await callbackQuery.edit_message_text(
-            f"__Add Stamp » Select Stamp:         \nTotal pages: {number_of_pages}__ 🌟",
+            f"__Add Stamp » Select Stamp:         \nTotal halaman: {number_of_pages}__ 🌟",
             reply_markup = InlineKeyboardMarkup(
                 [
                     [
@@ -155,7 +155,7 @@ async def _stmp(bot, callbackQuery):
     try:
         _, annot = callbackQuery.data.split("|")
         await callbackQuery.edit_message_text(
-            "__Add Stamp » Select Color:         \nTotal pages: unknown__ 😐",
+            "__Add Stamp » Select Color:         \nTotal halaman: unknown__ 😐",
             reply_markup = InlineKeyboardMarkup(
                 [
                     [
@@ -186,7 +186,7 @@ async def _Kstmp(bot, callbackQuery):
     try:
         _, number_of_pages, annot = callbackQuery.data.split("|")
         await callbackQuery.edit_message_text(
-            f"__Add Stamp » Select Color:         \nTotal pages: {number_of_pages}__ 🌟",
+            f"__Add Stamp » Select Color:         \nTotal halaman: {number_of_pages}__ 🌟",
             reply_markup = InlineKeyboardMarkup(
                 [
                     [
@@ -217,7 +217,7 @@ async def _color(bot, callbackQuery):
         # CHECK IF USER IN PROCESS
         if callbackQuery.message.chat.id in PROCESS:
             await callbackQuery.answer(
-                "Work in progress.. 🙇"
+                "⏳ - Sedang dalam proses"
             )
             return
         
@@ -227,7 +227,7 @@ async def _color(bot, callbackQuery):
         data = callbackQuery.data
         # STARTED DOWNLOADING
         downloadMessage=await callbackQuery.message.reply_text(
-            "`Downloding your pdf..` ⏳", quote=True
+            "`📥 - Mendownload PDF`", quote=True
         )
         input_file=f"{callbackQuery.message.message_id}/pdf.pdf"
         file_id=callbackQuery.message.reply_to_message.document.file_id

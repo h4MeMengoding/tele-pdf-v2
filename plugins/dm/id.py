@@ -25,15 +25,15 @@ ADMINS=Config.ADMINS
 #--------> LOCAL VARIABLES
 #------------------->
 
-UCantUse = "For Some Reason You Can't Use This Bot 🛑"
+UCantUse = "Kamu telah di-BAN karena melanggar ketentuan"
 
 
 button=InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton(
-                    "😉 Create your Own 😉",
-                    url="https://github.com/nabilanavab/ilovepdf"
+                    "CHAT DEV",
+                    url="https://t.me/ilhamshff"
                 )
             ]
        ]
@@ -59,7 +59,7 @@ async def userId(bot, message):
             )
             return
         await message.reply_text(
-            f'Your Id: `{message.chat.id}`', quote=True
+            f'ID Telegram anda: `{message.chat.id}`', quote=True
         )
     except Exception:
         pass

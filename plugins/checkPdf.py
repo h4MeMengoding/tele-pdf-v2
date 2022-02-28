@@ -21,15 +21,15 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 encryptedMsg = """`FILE IS ENCRYPTED` 🔐
 
-File Name: `{}`
-File Size: `{}`
+Nama FIle: `{}`
+Ukuran File: `{}`
 
-`Number of Pages: {}`✌️"""
+`Jumlah Halaman: {}`"""
 
 
-codecMsg = """__I don't do anything with this file__ 😏
+codecMsg = """__I don't do anything with this file__ 
 
-🐉  `CODEC ERROR`  🐉"""
+  `CODEC ERROR`  """
 
 #--------------->
 #--------> CHECKS PDF CODEC, IS ENCRYPTED OR NOT
@@ -85,7 +85,7 @@ async def checkPdf(file_path, callbackQuery):
                 [
                     [
                         InlineKeyboardButton(
-                            "❌ ERROR IN CODEC ❌",
+                            "❌ - ERROR IN CODEC",
                             callback_data="error"
                         )
                     ]

@@ -23,12 +23,12 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 
-pdfInfoMsg = """`What shall i wanted to do with this file.?`
+pdfInfoMsg = """`Apa yang ingin saya lakukan dengan file ini?`
 
-File Name: `{}`
-File Size: `{}`
+Nama FIle: `{}`
+Ukuran File: `{}`
 
-`Number of Pages: {}`✌️
+`Jumlah Halaman: {}`✌️
 """
 
 PDF_THUMBNAIL = Config.PDF_THUMBNAIL
@@ -200,7 +200,7 @@ async def _splitROrS(bot, callbackQuery):
             downloadMessage = await bot.send_message(
                 chat_id = callbackQuery.message.chat.id,
                 reply_to_message_id = callbackQuery.message.message_id,
-                text = "`Downloding your pdf..` ⏳"
+                text = "`📥 - Mendownload PDF`"
             )
             file_id = callbackQuery.message.reply_to_message.document.file_id
             fileSize = callbackQuery.message.reply_to_message.document.file_size
@@ -457,7 +457,7 @@ async def _KsplitR(bot, callbackQuery):
             i += 1
             
             needPages = await bot.ask(
-                text = f"__Pdf Split » By Range\nNow, Enter the range (start:end) :\nTotal Pages : __`{number_of_pages}` 🌟\n\n/exit __to cancel__",
+                text = f"__Pdf Split » By Range\nNow, Enter the range (start:end) :\nTotal halaman : __`{number_of_pages}` 🌟\n\n/exit __to cancel__",
                 chat_id = callbackQuery.message.chat.id,
                 reply_to_message_id = callbackQuery.message.message_id,
                 filters = filters.text,
@@ -519,7 +519,7 @@ async def _KsplitR(bot, callbackQuery):
             downloadMessage = await bot.send_message(
                 chat_id = callbackQuery.message.chat.id,
                 reply_to_message_id = callbackQuery.message.message_id,
-                text = "`Downloding your pdf..` ⏳"
+                text = "`📥 - Mendownload PDF`"
             )
             file_id = callbackQuery.message.reply_to_message.document.file_id
             fileSize = callbackQuery.message.reply_to_message.document.file_size
@@ -624,7 +624,7 @@ async def _KsplitS(bot, callbackQuery):
             i += 1
             
             needPages = await bot.ask(
-                text = f"__Pdf Split » By Pages\nEnter Page Numbers seperate by__ (,) :\n__Total Pages : __`{number_of_pages}` 🌟\n\n/exit __to cancel__",
+                text = f"__Pdf Split » By Pages\nEnter Page Numbers seperate by__ (,) :\n__Total halaman : __`{number_of_pages}` 🌟\n\n/exit __to cancel__",
                 chat_id = callbackQuery.message.chat.id,
                 reply_to_message_id = callbackQuery.message.message_id,
                 filters = filters.text,

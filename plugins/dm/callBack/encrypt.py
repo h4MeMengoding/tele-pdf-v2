@@ -27,12 +27,12 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 encryptedFileCaption = "Page Number : {}\nkey 🔐 : ||{}||"
 
 
-pdfInfoMsg = """`What shall i wanted to do with this file.?`
+pdfInfoMsg = """`Apa yang ingin saya lakukan dengan file ini?`
 
-File Name: `{}`
-File Size: `{}`
+Nama FIle: `{}`
+Ukuran File: `{}`
 
-`Number of Pages: {}`✌️
+`Jumlah Halaman: {}`✌️
 """
 
 
@@ -87,7 +87,7 @@ async def _encrypt(bot, callbackQuery):
             return
         # DOWNLOAD MESSAGE
         downloadMessage=await callbackQuery.message.reply_text(
-            "`Downloding your pdf..` ⏳", quote=True
+            "`📥 - Mendownload PDF`", quote=True
         )
         file_id = callbackQuery.message.reply_to_message.document.file_id
         input_file = f"{callbackQuery.message.message_id}/pdf.pdf"

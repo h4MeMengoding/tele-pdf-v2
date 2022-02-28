@@ -21,19 +21,19 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 #--------> LOCAL VARIABLES
 #------------------->
 
-pdfInfoMsg = """`What shall i wanted to do with this file.?`
+pdfInfoMsg = """`Apa yang ingin saya lakukan dengan file ini?`
 
-File Name: `{}`
-File Size: `{}`
+Nama FIle: `{}`
+Ukuran File: `{}`
 
-`Number of Pages: {}`✌️"""
+`Jumlah Halaman: {}`"""
 
 encryptedMsg = """`FILE IS ENCRYPTED` 🔐
 
-File Name: `{}`
-File Size: `{}`
+Nama FIle: `{}`
+Ukuran File: `{}`
 
-`Number of Pages: {}`✌️"""
+`Jumlah Halaman: {}`"""
 
 #--------------->
 #--------> PDF META DATA
@@ -49,7 +49,7 @@ async def _pdfInfo(bot, callbackQuery):
         # CHECKS PROCESS
         if callbackQuery.message.chat.id in PROCESS:
             await callbackQuery.answer(
-                "Work in progress.. 🙇"
+                "⏳ - Sedang dalam proses"
             )
             return
         # CB MESSAGE DELETES IF USER DELETED PDF

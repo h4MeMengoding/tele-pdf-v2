@@ -24,7 +24,7 @@ from PDFNetPython3.PDFNetPython import PDFDoc, Optimizer, SDFDoc, PDFNet
 #--------> LOCAL VARIABLES
 #------------------->
 
-compressedCaption = """`Original Size : {}
+compressedCaption = """`Ukuran asli : {}
 Compressed Size : {}
 
 Ratio : {:.2f} %`"""
@@ -45,7 +45,7 @@ async def _compress(bot, callbackQuery):
         # CHECKS IF BOT DOING ANY WORK
         if callbackQuery.message.chat.id in PROCESS:
             await callbackQuery.answer(
-                "Work in progress.. 🙇"
+                "⏳ - Sedang dalam proses"
             )
             return
         # ADD TO PROCESS
@@ -54,7 +54,7 @@ async def _compress(bot, callbackQuery):
         data = callbackQuery.data
         # DOWNLOAD MESSSAGE
         downloadMessage = await callbackQuery.message.reply_text(
-            "`Downloding your pdf..` ⏳", quote=True
+            "`📥 - Mendownload PDF`", quote=True
         )
         input_file = f"{callbackQuery.message.message_id}/inCompress.pdf"
         file_id = callbackQuery.message.reply_to_message.document.file_id
@@ -76,7 +76,7 @@ async def _compress(bot, callbackQuery):
             PROCESS.remove(callbackQuery.message.chat.id)
             return
         await downloadMessage.edit(
-            "`Started Compressing..` 🗜️"
+            "`Memulai Compressing..`"
         )
         # CHECK PDF OR NOT(HERE compressed, SO PG UNKNOWN)
         if data == "compress":
@@ -108,7 +108,7 @@ async def _compress(bot, callbackQuery):
             callbackQuery.message.chat.id, "upload_document"
         )
         await downloadMessage.edit(
-            "`Started Uploading..` 🏋️"
+            "`📤 - Mengirim file`"
         )
         await callbackQuery.message.reply_document(
             file_name="nabil.pdf", quote=True,

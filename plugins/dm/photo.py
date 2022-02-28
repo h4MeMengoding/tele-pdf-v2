@@ -29,29 +29,29 @@ ADMINS=Config.ADMINS
 #--------> LOCAL VARIABLES
 #------------------->
 
-UCantUse = "For Some Reason You Can't Use This Bot 🛑"
+UCantUse = "Kamu telah di-BAN karena melanggar ketentuan"
 
 
-imageAdded = """`Added {} page/'s to your pdf..`🤓
+imageAdded = """`✅ - Berhasil Menambahkan {} halaman ke pdf`
+"""
 
-/generate to generate PDF 🤞"""
 
+forceSubMsg = """Tunggu [{}](tg://user?id={})..!!
 
-forceSubMsg = """Wait [{}](tg://user?id={})..!!
+Karena alasan traffic server maka hanya Anggota channel yang Dapat Menggunakan
+    
+Anda diwajibkan untuk bergabung kedalam channel.
 
-Due To The Huge Traffic Only Channel Members Can Use this Bot 🚶
-
-This Means You Need To Join The Below Mentioned Channel for Using Me!
-
-hit on "retry ♻️" after joining.. 😅"""
+Klik "refresh" jika sudah bergabung.. 
+"""
 
 
 button=InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton(
-                    "😉 Create your Own 😉",
-                    url="https://github.com/nabilanavab/ilovepdf"
+                    "CHAT DEV",
+                    url="https://t.me/ilhamshff"
                 )
             ]
        ]
@@ -89,13 +89,13 @@ async def images(bot, message):
                         [
                             [
                                 InlineKeyboardButton(
-                                    "🌟 JOIN CHANNEL 🌟",
+                                    "BERGABUNG",
                                     url=invite_link.invite_link
                                 )
                             ],
                             [
                                 InlineKeyboardButton(
-                                    "Refresh ♻️",
+                                    "REFRESH",
                                     callback_data="refresh"
                                 )
                             ]
@@ -114,7 +114,7 @@ async def images(bot, message):
             return
         imageReply = await bot.send_message(
             message.chat.id,
-            "`Downloading your Image..⏳`",
+            "`⏳- Mengunduh Gambar Anda`",
             reply_to_message_id = message.message_id
         )
         if not isinstance(PDF.get(message.chat.id), list):

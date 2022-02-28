@@ -69,50 +69,51 @@ suprtedPdfFile2 = [
 #--------> LOCAL VARIABLES
 #------------------->
 
-UCantUse = "For Some Reason You Can't Use This Bot 🛑"
+UCantUse = "Kamu telah di-BAN karena melanggar ketentuan"
 
 
-pdfReplyMsg = """`What shall i wanted to do with this file.?`
+pdfReplyMsg = """`Quick Informasi`
 
-File Name : `{}`
-File Size : `{}`"""
-
-
-bigFileUnSupport = """Due to Overload, Owner limits {}mb for pdf files 🙇
-
-`please Send me a file less than {}mb Size` 🙃"""
+Nama File : `{}`
+Ukuran File : `{}`"""
 
 
-imageAdded = """`Added {} page/'s to your pdf..`🤓
+bigFileUnSupport = """Karena Overload, bot hanya mendukung file {}mb PDF
 
-/generate to generate PDF 🤞"""
+`silahkan kirim file kurang dari {}mb`"""
 
 
-errorEditMsg = """Something went wrong..😐
+imageAdded = """`✅ - Berhasil Menambahkan {} halaman ke pdf`
+"""
+
+
+errorEditMsg = """⛔️ - Something went wrong
 
 ERROR: `{}`
-
-For bot updates join @ilovepdf_bot"""
-
-
-feedbackMsg = "[Write a feedback 📋](https://t.me/nabilanavabchannel/17?comment=10)"
+"""
 
 
-forceSubMsg = """Wait [{}](tg://user?id={})..!!
+feedbackMsg = """
+[Tulis feedback 📋](https://tellonym.me/Developer_InHame)
+"""
 
-Due To The Huge Traffic Only Channel Members Can Use this Bot 🚶
 
-This Means You Need To Join The Below Mentioned Channel for Using Me!
+forceSubMsg = """Tunggu [{}](tg://user?id={})..!!
 
-hit on "retry ♻️" after joining.. 😅"""
+Karena alasan traffic server maka hanya Anggota channel yang Dapat Menggunakan
+    
+Anda diwajibkan untuk bergabung kedalam channel.
+
+Klik "refresh" jika sudah bergabung.. 
+"""
 
 
 button=InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton(
-                    "😉 Create your Own 😉",
-                    url="https://github.com/nabilanavab/ilovepdf"
+                    "CHAT DEV",
+                    url="https://t.me/ilhamshff"
                 )
             ]
        ]
@@ -126,57 +127,57 @@ pdfReply=InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton(
-                    "⭐ get page No & info ⭐",
+                    "INFORMASI PDF",
                     callback_data="pdfInfo"
                 )
             ],
             [
                 InlineKeyboardButton(
-                    "To Images 🖼️",
+                    "TO IMAGE 🖼️",
                     callback_data="toImage"
                 ),
                 InlineKeyboardButton(
-                    "To Text ✏️",
+                    "TO TEXT ✏️",
                     callback_data="toText"
                 )
             ],
             [
                 InlineKeyboardButton(
-                    "Encrypt 🔐",
+                    "ENCRYPT 🔐",
                     callback_data="encrypt"
                 ),
                 InlineKeyboardButton(
-                    "Decrypt 🔓",
+                    "DECRYPT 🔓",
                     callback_data="decrypt"
                 )
             ],
             [
                 InlineKeyboardButton(
-                    "Compress 🗜️",
+                    "COMPRESS 🗜️",
                     callback_data="compress"
                 ),
                 InlineKeyboardButton(
-                    "Rotate 🤸",
+                    "ROTATE 🤸",
                     callback_data="rotate"
                 )
             ],
             [
                 InlineKeyboardButton(
-                    "Split ✂️",
+                    "SPLIT ✂️",
                     callback_data="split"
                 ),
                 InlineKeyboardButton(
-                    "Merge 🧬",
+                    "MERGE 🧬",
                     callback_data="merge"
                 )
             ],
             [
                 InlineKeyboardButton(
-                    "Stamp ™️",
+                    "STAMP ™️",
                     callback_data="stamp"
                 ),
                 InlineKeyboardButton(
-                    "Rename ✏️",
+                    "RENAME ✏️",
                     callback_data="rename"
                 )
             ]
@@ -225,13 +226,13 @@ async def documents(bot, message):
                         [
                             [
                                 InlineKeyboardButton(
-                                    "🌟 JOIN CHANNEL 🌟",
+                                    "BERGABUNG",
                                     url=invite_link.invite_link
                                 )
                             ],
                             [
                                 InlineKeyboardButton(
-                                    "Refresh ♻️",
+                                    "REFRESH",
                                     callback_data="refresh"
                                 )
                             ]
@@ -260,9 +261,9 @@ async def documents(bot, message):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton(
-                                "💎 Create 2Gb Support Bot 💎",
-                                url="https://github.com/nabilanavab/ilovepdf"
+                             InlineKeyboardButton(
+                                "CHAT DEV",
+                                url="https://t.me/ilhamshff"
                             )
                         ]
                     ]
@@ -274,7 +275,7 @@ async def documents(bot, message):
         elif fileExt.lower() in suprtedFile:
             try:
                 imageDocReply = await message.reply_text(
-                    "`Downloading your Image..⏳`", quote=True
+                    "`⏳- Mengunduh Gambar Anda`", quote=True
                 )
                 if not isinstance(PDF.get(message.chat.id), list):
                     PDF[message.chat.id]=[]
@@ -297,7 +298,7 @@ async def documents(bot, message):
         elif fileExt.lower() == ".pdf":
             try:
                 pdfMsgId = await message.reply_text(
-                    "Processing..🚶", quote=True
+                    "⏳- Memproses", quote=True
                 )
                 sleep(0.5)
                 await pdfMsgId.edit(
@@ -313,13 +314,13 @@ async def documents(bot, message):
         elif fileExt.lower() in suprtedPdfFile:
             try:
                 pdfMsgId = await message.reply_text(
-                    "`Downloading your file..⏳`", quote=True
+                    "`⏳ - Mengunduh file anda`", quote=True
                 )
                 await message.download(
                     f"{message.message_id}/{isPdfOrImg}"
                 )
                 await pdfMsgId.edit(
-                    "`Creating pdf..`💛"
+                    "`🖨 - Membuat pdf`"
                 )
                 Document=fitz.open(
                     f"{message.message_id}/{isPdfOrImg}"
@@ -333,7 +334,7 @@ async def documents(bot, message):
                 )
                 pdf.close()
                 await pdfMsgId.edit(
-                    "`Started Uploading..`🏋️"
+                    "`📤 - Mengirim file`"
                 )
                 await bot.send_chat_action(
                     message.chat.id, "upload_document"
@@ -367,20 +368,20 @@ async def documents(bot, message):
         elif fileExt.lower() in suprtedPdfFile2:
             if os.getenv("CONVERT_API") is None:
                 pdfMsgId = await message.reply_text(
-                    "`Owner Forgot to add ConvertAPI.. contact Owner 😒`",
+                    "`Error : API key tidak ditambahkan, silahkan hubungi developer`",
                     quote=True
                 )
                 return
             else:
                 try:
                     pdfMsgId = await message.reply_text(
-                        "`Downloading your file..⏳`", quote=True
+                        "`⏳ - Mengunduh file anda`", quote=True
                     )
                     await message.download(
                         f"{message.message_id}/{isPdfOrImg}"
                     )
                     await pdfMsgId.edit(
-                        "`Creating pdf..`💛"
+                        "`🖨 - Membuat pdf`"
                     )
                     try:
                         await convertapi.convert(
@@ -427,7 +428,7 @@ async def documents(bot, message):
         else:
             try:
                 await message.reply_text(
-                    "`unsupported file..🙄`", quotes=True
+                    "`File tidak didukung..`", quotes=True
                 )
             except Exception:
                 pass

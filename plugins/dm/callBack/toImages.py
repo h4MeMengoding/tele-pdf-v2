@@ -51,7 +51,7 @@ async def _EXTRACT(bot, callbackQuery):
         # CHECK USER PROCESS
         if callbackQuery.message.chat.id in PROCESS:
             await callbackQuery.answer(
-                "Work in progress.. 🙇"
+                "⏳ - Sedang dalam proses"
             )
             return
         # ADD USER TO PROCESS
@@ -184,7 +184,7 @@ async def _EXTRACT(bot, callbackQuery):
             downloadMessage = await bot.send_message(
                 chat_id = callbackQuery.message.chat.id,
                 reply_to_message_id = callbackQuery.message.message_id,
-                text = "`Downloding your pdf..` ⏳"
+                text = "`📥 - Mendownload PDF`"
             )
             file_id = callbackQuery.message.reply_to_message.document.file_id
             fileSize = callbackQuery.message.reply_to_message.document.file_size
@@ -239,7 +239,7 @@ async def _EXTRACT(bot, callbackQuery):
                 await bot.edit_message_text(
                     chat_id = callbackQuery.message.chat.id,
                     message_id = downloadMessage.message_id,
-                    text = f"`Total pages: {int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0])}..⏳`"
+                    text = f"`Total halaman: {int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0])}..⏳`"
                 )
                 totalPgList = range(int(pageStartAndEnd[0]), int(pageStartAndEnd[1])+1)
                 cnvrtpg = 0
@@ -443,7 +443,7 @@ async def _EXTRACT(bot, callbackQuery):
                 await bot.edit_message_text(
                     chat_id = callbackQuery.message.chat.id,
                     message_id = downloadMessage.message_id,
-                    text = f"`Total pages: {len(totalPgList)}..⏳`"
+                    text = f"`Total halaman: {len(totalPgList)}..⏳`"
                 )
                 cnvrtpg = 0
                 for i in range(0, len(totalPgList), 10):
@@ -639,7 +639,7 @@ async def _KEXTRACT(bot, callbackQuery):
     try:
         if callbackQuery.message.chat.id in PROCESS:
             await callbackQuery.answer(
-                "Work in progress.. 🙇"
+                "⏳ - Sedang dalam proses"
             )
             return
         data = callbackQuery.data[:3]
@@ -754,7 +754,7 @@ async def _KEXTRACT(bot, callbackQuery):
             downloadMessage = await bot.send_message(
                 chat_id = callbackQuery.message.chat.id,
                 reply_to_message_id = callbackQuery.message.message_id,
-                text = "`Downloding your pdf..` ⏳"
+                text = "`📥 - Mendownload PDF`"
             )
             file_id = callbackQuery.message.reply_to_message.document.file_id
             fileSize = callbackQuery.message.reply_to_message.document.file_size
@@ -806,7 +806,7 @@ async def _KEXTRACT(bot, callbackQuery):
                 await bot.edit_message_text(
                     chat_id = callbackQuery.message.chat.id,
                     message_id = downloadMessage.message_id,
-                    text = f"`Total pages: {int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0])}..⏳`"
+                    text = f"`Total halaman: {int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0])}..⏳`"
                 )
                 totalPgList = range(int(pageStartAndEnd[0]), int(pageStartAndEnd[1])+1)
                 cnvrtpg = 0
@@ -1010,7 +1010,7 @@ async def _KEXTRACT(bot, callbackQuery):
                 await bot.edit_message_text(
                     chat_id = callbackQuery.message.chat.id,
                     message_id = downloadMessage.message_id,
-                    text = f"`Total pages: {len(totalPgList)}..⏳`"
+                    text = f"`Total halaman: {len(totalPgList)}..⏳`"
                 )
                 cnvrtpg = 0
                 for i in range(0, len(totalPgList), 10):

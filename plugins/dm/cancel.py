@@ -26,14 +26,14 @@ ADMINS=Config.ADMINS
 #--------> LOCAL VARIABLES
 #------------------->
 
-UCantUse = "🚫For Some Reason You Can't Use This Bot🚫"
+UCantUse = "Kamu telah di-BAN karena melanggar ketentuan"
 
 button=InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton(
-                    "😉 Create your Own 😉",
-                    url="https://github.com/nabilanavab/ilovepdf"
+                    "CHAT DEV",
+                    url="https://t.me/ilhamshff"
                 )
             ]
        ]

@@ -1,4 +1,4 @@
-# fileName : plugins/dm/callBack/asImgOrDoc.py
+# fileName : plugins/dm/callKembali/asImgOrDoc.py
 # copyright ©️ 2021 nabilanavab
 
 
@@ -20,57 +20,57 @@ pdfReply = InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton(
-                    "⭐ get page No & info ⭐",
+                    "INFORMASI PDF",
                     callback_data="pdfInfo"
                 )
             ],
             [
                 InlineKeyboardButton(
-                    "To Images 🖼️",
+                    "TO IMAGE 🖼️",
                     callback_data="toImage"
                 ),
                 InlineKeyboardButton(
-                    "To Text ✏️",
+                    "TO TEXT ✏️",
                     callback_data="toText"
                 )
             ],
             [
                 InlineKeyboardButton(
-                    "Encrypt 🔐",
+                    "ENCRYPT 🔐",
                     callback_data="encrypt"
                 ),
                 InlineKeyboardButton(
-                    "Decrypt 🔓",
+                    "DECRYPT 🔓",
                     callback_data="decrypt"
                 )
             ],
             [
                 InlineKeyboardButton(
-                    "Compress 🗜️",
+                    "COMPRESS 🗜️",
                     callback_data="compress"
                 ),
                 InlineKeyboardButton(
-                    "Rotate 🤸",
+                    "ROTATE 🤸",
                     callback_data="rotate"
                 )
             ],
             [
                 InlineKeyboardButton(
-                    "Split ✂️",
+                    "SPLIT ✂️",
                     callback_data="split"
                 ),
                 InlineKeyboardButton(
-                    "Merge 🧬",
+                    "MERGE 🧬",
                     callback_data="merge"
                 )
             ],
             [
                 InlineKeyboardButton(
-                    "Stamp ™️",
+                    "STAMP ™️",
                     callback_data="stamp"
                 ),
                 InlineKeyboardButton(
-                    "Rename ✏️",
+                    "RENAME ✏️",
                     callback_data="rename"
                 )
             ]
@@ -78,18 +78,18 @@ pdfReply = InlineKeyboardMarkup(
     )
 
 
-BTPMcb = """`What shall i wanted to do with this file.?`
+BTPMcb = """`Apa yang ingin saya lakukan dengan file ini?`
 
-File Name: `{}`
-File Size: `{}`"""
+Nama FIle: `{}`
+Ukuran File: `{}`"""
 
 
-KBTPMcb = """`What shall i wanted to do with this file.?`
+KBTPMcb = """`Apa yang ingin saya lakukan dengan file ini?`
 
-File Name: `{}`
-File Size: `{}`
+Nama FIle: `{}`
+Ukuran File: `{}`
 
-`Number of Pages: {}`✌️"""
+`Jumlah Halaman: {}`"""
 
 #--------------->
 #--------> LOCAL VARIABLES
@@ -130,30 +130,30 @@ KD = filters.create(lambda _, __, query: query.data.startswith("KD|"))
 async def _I(bot, callbackQuery):
     try:
         await callbackQuery.edit_message_text(
-            "__Pdf - Img » as Img » Pages:           \nTotal pages: unknown__ 😐",
+            "__Pdf - Img » as Img » Pages:           \nTotal halaman: unknown__ 😐",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            "Extract All 🙄",
+                            "Extract All",
                             callback_data="IA"
                         )
                     ],
                     [
                         InlineKeyboardButton(
-                            "With In Range 🙂",
+                            "With In Range",
                             callback_data="IR"
                         )
                     ],
                     [
                         InlineKeyboardButton(
-                            "Single Page 🌝",
+                            "Single Page",
                             callback_data="IS"
                         )
                     ],
                     [
                         InlineKeyboardButton(
-                            "« Back «",
+                            "« Kembali «",
                             callback_data="toImage"
                         )
                     ]
@@ -169,30 +169,30 @@ async def _I(bot, callbackQuery):
 async def _D(bot, callbackQuery):
     try:
         await callbackQuery.edit_message_text(
-            "__Pdf - Img » as Doc » Pages:           \nTotal pages: unknown__ 😐",
+            "__Pdf - Img » as Doc » Pages:           \nTotal halaman: unknown__ 😐",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            "Extract All 🙄",
+                            "Extract All",
                             callback_data="DA"
                         )
                     ],
                     [
                         InlineKeyboardButton(
-                            "With In Range 🙂",
+                            "With In Range",
                             callback_data="DR"
                         )
                     ],
                     [
                         InlineKeyboardButton(
-                            "Single Page 🌝",
+                            "Single Page",
                             callback_data="DS"
                         )
                     ],
                     [
                         InlineKeyboardButton(
-                            "« Back «",
+                            "« Kembali «",
                             callback_data="toImage"
                         )
                     ]
@@ -209,30 +209,30 @@ async def _KI(bot, callbackQuery):
     try:
         _, number_of_pages = callbackQuery.data.split("|")
         await callbackQuery.edit_message_text(
-            f"__Pdf - Img » as Img » Pages:           \nTotal pages: {number_of_pages}__ 🌟",
+            f"__Pdf - Img » as Img » Pages:           \nTotal halaman: {number_of_pages}__ 🌟",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            "Extract All 🙄",
+                            "Extract All",
                             callback_data=f"KIA|{number_of_pages}"
                         )
                     ],
                     [
                         InlineKeyboardButton(
-                            "With In Range 🙂",
+                            "With In Range",
                             callback_data=f"KIR|{number_of_pages}"
                         )
                     ],
                     [
                         InlineKeyboardButton(
-                            "Single Page 🌝",
+                            "Single Page",
                             callback_data=f"KIS|{number_of_pages}"
                         )
                     ],
                     [
                         InlineKeyboardButton(
-                            "« Back «",
+                            "« Kembali «",
                             callback_data=f"KtoImage|{number_of_pages}"
                         )
                     ]
@@ -249,30 +249,30 @@ async def _KD(bot, callbackQuery):
     try:
         _, number_of_pages = callbackQuery.data.split("|")
         await callbackQuery.edit_message_text(
-            f"__Pdf - Img » as Doc » Pages:           \nTotal pages: {number_of_pages}__ 🌟",
+            f"__Pdf - Img » as Doc » Pages:           \nTotal halaman: {number_of_pages}__ 🌟",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            "Extract All 🙄",
+                            "Extract All",
                             callback_data=f"KDA|{number_of_pages}"
                         )
                     ],
                     [
                         InlineKeyboardButton(
-                            "With In Range 🙂",
+                            "With In Range",
                             callback_data=f"KDR|{number_of_pages}"
                         )
                     ],
                     [
                         InlineKeyboardButton(
-                            "Single Page 🌝",
+                            "Single Page",
                             callback_data=f"KDS|{number_of_pages}"
                         )
                     ],
                     [
                         InlineKeyboardButton(
-                            "« Back «",
+                            "« Kembali «",
                             callback_data=f"KtoImage|{number_of_pages}"
                         )
                     ]
@@ -287,7 +287,7 @@ async def _KD(bot, callbackQuery):
 async def _toImage(bot, callbackQuery):
     try:
         await callbackQuery.edit_message_text(
-            "__Send pdf Images as:           \nTotal pages: unknown__ 😐",
+            "__Send pdf Images as:           \nTotal halaman: unknown__ 😐",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -302,7 +302,7 @@ async def _toImage(bot, callbackQuery):
                     ],
                     [
                         InlineKeyboardButton(
-                            "« Back «",
+                            "« Kembali «",
                             callback_data="BTPM"
                         )
                     ]
@@ -319,7 +319,7 @@ async def _KtoImage(bot, callbackQuery):
     try:
         _, number_of_pages = callbackQuery.data.split("|")
         await callbackQuery.edit_message_text(
-            f"__Send pdf Images as:           \nTotal pages: {number_of_pages}__ 😐",
+            f"__Send pdf Images as:           \nTotal halaman: {number_of_pages}__ 😐",
             reply_markup = InlineKeyboardMarkup(
                 [
                     [
@@ -334,7 +334,7 @@ async def _KtoImage(bot, callbackQuery):
                     ],
                     [
                         InlineKeyboardButton(
-                            "«Back «",
+                            "«Kembali «",
                             callback_data=f"KBTPM|{number_of_pages}"
                         )
                     ]
@@ -376,63 +376,63 @@ async def _KBTPM(bot, callbackQuery):
             ),
             reply_markup = InlineKeyboardMarkup(
                 [
-                    [
-                        InlineKeyboardButton(
-                            "⭐get page No & info⭐",
-                            callback_data=f"KpdfInfo|{number_of_pages}"
-                        )
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            "To Images 🖼️",
-                            callback_data=f"KtoImage|{number_of_pages}"
-                        ),
-                        InlineKeyboardButton(
-                            "To Text ✏️",
-                            callback_data=f"KtoText|{number_of_pages}"
-                        )
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            "Encrypt 🔐",
-                            callback_data=f"Kencrypt|{number_of_pages}"
-                        ),
-                        InlineKeyboardButton(
-                            "Decrypt 🔓",
-                            callback_data=f"notEncrypted"
-                        )
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            "Compress 🗜️",
-                            callback_data=f"Kcompress"
-                        ),
-                        InlineKeyboardButton(
-                            "Rotate 🤸",
-                            callback_data=f"Krotate|{number_of_pages}"
-                        )
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            "Split ✂️",
-                            callback_data=f"Ksplit|{number_of_pages}"
-                        ),
-                        InlineKeyboardButton(
-                            "Merge 🧬",
-                            callback_data="merge"
-                        )
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            "Stamp ™️",
-                            callback_data=f"Kstamp|{number_of_pages}"
-                        ),
-                        InlineKeyboardButton(
-                            "Rename",
-                            callback_data="rename"
-                        )
-                    ]
-                ]
+            [
+                InlineKeyboardButton(
+                    "INFORMASI PDF",
+                    callback_data="pdfInfo"
+                )
+            ],
+            [
+                InlineKeyboardButton(
+                    "TO IMAGE 🖼️",
+                    callback_data="toImage"
+                ),
+                InlineKeyboardButton(
+                    "TO TEXT ✏️",
+                    callback_data="toText"
+                )
+            ],
+            [
+                InlineKeyboardButton(
+                    "ENCRYPT 🔐",
+                    callback_data="encrypt"
+                ),
+                InlineKeyboardButton(
+                    "DECRYPT 🔓",
+                    callback_data="decrypt"
+                )
+            ],
+            [
+                InlineKeyboardButton(
+                    "COMPRESS 🗜️",
+                    callback_data="compress"
+                ),
+                InlineKeyboardButton(
+                    "ROTATE 🤸",
+                    callback_data="rotate"
+                )
+            ],
+            [
+                InlineKeyboardButton(
+                    "SPLIT ✂️",
+                    callback_data="split"
+                ),
+                InlineKeyboardButton(
+                    "MERGE 🧬",
+                    callback_data="merge"
+                )
+            ],
+            [
+                InlineKeyboardButton(
+                    "STAMP ™️",
+                    callback_data="stamp"
+                ),
+                InlineKeyboardButton(
+                    "RENAME ✏️",
+                    callback_data="rename"
+                )
+            ]
+        ]
             )
         )
     except Exception:

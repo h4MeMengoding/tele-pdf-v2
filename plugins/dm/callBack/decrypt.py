@@ -64,7 +64,7 @@ async def _decrypt(bot, callbackQuery):
             return
         # DOWNLOAD MESSAGE
         downloadMessage=await callbackQuery.message.reply_text(
-            "`Downloding your pdf..` ⏳", quote=True
+            "`📥 - Mendownload PDF`", quote=True
         )
         input_file = f"{callbackQuery.message.message_id}/pdf.pdf"
         output_pdf = f"{callbackQuery.message.message_id}/Decrypted.pdf"

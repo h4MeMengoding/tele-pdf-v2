@@ -30,18 +30,20 @@ ADMINS=Config.ADMINS
 #--------> LOCAL VARIABLES
 #------------------->
 
-UCantUse = "For Some Reason You Can't Use This Bot 🛑"
+UCantUse = "Kamu telah di-BAN karena melanggar ketentuan"
 
 
-feedbackMsg = "[Write a feedback 📋](https://t.me/nabilanavabchannel/17?comment=10)"
+feedbackMsg = """
+[Tulis feedback 📋](https://tellonym.me/Developer_InHame)
+"""
 
 
 button=InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton(
-                    "😉 Create your Own 😉",
-                    url="https://github.com/nabilanavab/ilovepdf"
+                    "CHAT DEV",
+                    url="https://t.me/ilhamshff"
                 )
             ]
        ]
@@ -78,7 +80,7 @@ async def generate(bot, message):
                 message.chat.id, "typing"
             )
             imagesNotFounded = await message.reply_text(
-                "`No image founded.!!`😒"
+                "`⛔️ - Silahkan kirim gambar`"
             )
             sleep(5)
             await message.delete()
@@ -86,7 +88,7 @@ async def generate(bot, message):
             return
         
         gnrtMsgId = await message.reply_text(
-            f"`Generating pdf..`💚"
+            f"`🖨️ - Membuat pdf`"
         )
         
         if newName == " name":
@@ -100,7 +102,7 @@ async def generate(bot, message):
         
         images[0].save(fileName, save_all = True, append_images = images[1:])
         await gnrtMsgId.edit(
-            "`Uploading pdf.. `🏋️",
+             "`📤 - Mengirim pdf`",
         )
         await bot.send_chat_action(
             message.chat.id, "upload_document"
@@ -109,10 +111,10 @@ async def generate(bot, message):
             chat_id=message.chat.id,
             document=open(fileName, "rb"),
             thumb=Config.PDF_THUMBNAIL,
-            caption=f"file Name: `{fileName}`\n\n`Total pg's: {pgnmbr}`"
+            caption = f"ℹ️ - Nama File: `{fileName}`\n\n`📄 - Total halaman: {pgnmbr}`"
         )
         await gnrtMsgId.edit(
-            "`Successfully Uploaded.. `🤫",
+            "`✅ - Berhasil mengirim pdf`",
         )
         os.remove(fileName)
         shutil.rmtree(f"{message.chat.id}")

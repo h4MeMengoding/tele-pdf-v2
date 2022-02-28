@@ -36,7 +36,7 @@ async def _underDev(bot, callbackQuery):
 async def _error(bot, callbackQuery):
     try:
         await callbackQuery.answer(
-            "Error annenn paranjille.. then what.. 😏"
+            "Error---"
         )
     except Exception:
         pass
@@ -50,7 +50,7 @@ async def _closeme(bot, callbackQuery):
         except Exception:
             pass
         await callbackQuery.answer(
-            "Process Canceled.. 😏"
+            "Proses dibatalkan"
         )
         PROCESS.remove(callbackQuery.message.chat.id)
     except Exception:
@@ -61,7 +61,7 @@ async def _closeme(bot, callbackQuery):
 async def _notEncrypted(bot, callbackQuery):
     try:
         await callbackQuery.answer(
-            "File Not Encrypted.. 👀"
+            "File Not Encrypted.."
         )
     except Exception:
         pass

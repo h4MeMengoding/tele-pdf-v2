@@ -23,12 +23,12 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 #--------> LOCAL VARIABLES
 #------------------->
 
-pdfInfoMsg = """`What shall i wanted to do with this file.?`
+pdfInfoMsg = """`Apa yang ingin saya lakukan dengan file ini?`
 
-File Name: `{}`
-File Size: `{}`
+Nama FIle: `{}`
+Ukuran File: `{}`
 
-`Number of Pages: {}`✌️
+`Jumlah Halaman: {}`✌️
 """
 
 PDF_THUMBNAIL = Config.PDF_THUMBNAIL
@@ -67,7 +67,7 @@ KtoText = filters.create(lambda _, __, query: query.data.startswith("KtoText|"))
 async def _toText(bot, callbackQuery):
     try:
         await callbackQuery.edit_message_text(
-            "__Pdf » Text\nTotal Pages: unknown 😐         \nNow, Specify the format:__",
+            "__Pdf » Text\nTotal halaman: unknown 😐         \nNow, Specify the format:__",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -109,7 +109,7 @@ async def _KtoText(bot, callbackQuery):
     try:
         _, number_of_pages = callbackQuery.data.split("|")
         await callbackQuery.edit_message_text(
-            f"__Pdf » Text\nTotal pages: {number_of_pages} 🌟         \nNow, Specify the format:__",
+            f"__Pdf » Text\nTotal halaman: {number_of_pages} 🌟         \nNow, Specify the format:__",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -160,7 +160,7 @@ async def _T(bot, callbackQuery):
         data = callbackQuery.data
         # DOWNLOAD MESSAGE
         downloadMessage = await callbackQuery.message.reply_text(
-            "`Downloding your pdf..` ⏳", quote=True
+            "`📥 - Mendownload PDF`", quote=True
         )
         # DOWNLOAD PROGRESS
         file_id = callbackQuery.message.reply_to_message.document.file_id
@@ -234,7 +234,7 @@ async def _M(bot, callbackQuery):
         downloadMessage = await bot.send_message(
             chat_id = callbackQuery.message.chat.id,
             reply_to_message_id = callbackQuery.message.reply_to_message.message_id,
-            text = "`Downloding your pdf..` ⏳"
+            text = "`📥 - Mendownload PDF`"
         )
         file_id = callbackQuery.message.reply_to_message.document.file_id
         fileSize = callbackQuery.message.reply_to_message.document.file_size
@@ -299,7 +299,7 @@ async def _H(bot, callbackQuery):
         downloadMessage = await bot.send_message(
             chat_id = callbackQuery.message.chat.id,
             reply_to_message_id = callbackQuery.message.reply_to_message.message_id,
-            text = "`Downloding your pdf..` ⏳"
+            text = "`📥 - Mendownload PDF`"
         )
         file_id = callbackQuery.message.reply_to_message.document.file_id
         fileSize = callbackQuery.message.reply_to_message.document.file_size
@@ -372,7 +372,7 @@ async def _J(bot, callbackQuery):
         downloadMessage = await bot.send_message(
             chat_id = callbackQuery.message.chat.id,
             reply_to_message_id = callbackQuery.message.reply_to_message.message_id,
-            text = "`Downloding your pdf..` ⏳"
+            text = "`📥 - Mendownload PDF`"
         )
         file_id = callbackQuery.message.reply_to_message.document.file_id
         fileSize = callbackQuery.message.reply_to_message.document.file_size

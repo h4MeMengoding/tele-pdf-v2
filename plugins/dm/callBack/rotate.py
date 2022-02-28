@@ -42,7 +42,7 @@ Krotate = filters.create(lambda _, __, query: query.data.startswith("Krotate|"))
 async def _rotate(bot, callbackQuery):
     try:
         await callbackQuery.edit_message_text(
-            "__Total Pages: Unknown 😐           \nRotate PDF in :__",
+            "__Total halaman: Unknown 😐           \nRotate PDF in :__",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -84,7 +84,7 @@ async def _Krotate(bot, callbackQuery):
     try:
         _, number_of_pages = callbackQuery.data.split("|")
         await callbackQuery.edit_message_text(
-            f"__Total Pages: {number_of_pages} 🌟           \nRotate PDF in:__",
+            f"__Total halaman: {number_of_pages} 🌟           \nRotate PDF in:__",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -128,7 +128,7 @@ async def _rot(bot, callbackQuery):
         # CHECK USER IN PROCESS
         if callbackQuery.message.chat.id in PROCESS:
             await callbackQuery.answer(
-                "Work in progress.. 🙇"
+                "⏳ - Sedang dalam proses"
             )
             return
         #ADD TO PROCESS

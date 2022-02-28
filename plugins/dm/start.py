@@ -21,10 +21,12 @@ from pyrogram.types import InlineKeyboardMarkup
 
 welcomeMsg = """Halo [{}](tg://user?id={}) 👋 Bot ini akan membantu Anda melakukan banyak hal dengan pdf 
 
-Some of the main features are:
+Fitur utama yang tersedia:
 ➤ `Convert images to PDF`
 ➤ `Convert PDF to images`
 ➤ `Convert files to pdf`
+
+Note : Mungkin masih ada beberapa fitur yang tidak dapat berfungsi (bug), semua sedang dalam pengembangan. Terimakasih
 """
 
 
@@ -45,7 +47,7 @@ aboutDev = """Dev tampang jangan lupa diisi -zeyy"""
 
 
 exploreBotEdit = """
-[SEDANG DALAM PROSES
+SEDANG DALAM PROSES PENGEMBANGAN
 """
 
 
@@ -99,13 +101,13 @@ async def start(bot, message):
                         [
                             [
                                 InlineKeyboardButton(
-                                    "🌟 JOIN CHANNEL 🌟",
+                                    "BERGABUNG",
                                     url = invite_link.invite_link
                                 )
                             ],
                             [
                                 InlineKeyboardButton(
-                                    "Refresh ♻️",
+                                    "REFRESH",
                                     callback_data = "refresh"
                                 )
                             ]
@@ -129,17 +131,11 @@ async def start(bot, message):
                 [
                     [
                         InlineKeyboardButton(
-                            "🌟 Source Code 🌟",
-                            callback_data = "strtDevEdt"
+                            "FITUR LAINNYA",
+                            callback_data = "exploreBot"
                         ),
                         InlineKeyboardButton(
-                            "Explore Bot 🎊",
-                            callback_data = "exploreBot"
-                        )
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            "Close 🚶",
+                            "TUTUP",
                             callback_data = "close"
                         )
                     ]
@@ -175,17 +171,11 @@ async def _strtDevEdt(bot, callbackQuery):
                 [
                     [
                         InlineKeyboardButton(
-                            "💎 Source Codes 💎",
-                            url = "https://github.com/nabilanavab/ilovepdf"
+                            "BERANDA",
+                            callback_data = "back"
                         ),
                         InlineKeyboardButton(
-                            "Home 🏡",
-                            callback_data = "back"
-                        )
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            "Close 🚶",
+                            "TUTUP",
                             callback_data = "close"
                         )
                     ]
@@ -206,13 +196,13 @@ async def _exploreBot(bot, callbackQuery):
                 [
                     [
                         InlineKeyboardButton(
-                            "Home 🏡",
+                            "BERANDA",
                             callback_data = "back"
                         )
                     ],
                     [
                         InlineKeyboardButton(
-                            "Close 🚶",
+                            "TUTUP",
                             callback_data = "close"
                         )
                     ]
@@ -237,17 +227,11 @@ async def _back(bot, callbackQuery):
                 [
                     [
                         InlineKeyboardButton(
-                            "🌟 Source Code 🌟",
-                            callback_data = "strtDevEdt"
+                            "FITUR LAINNYA",
+                            callback_data = "exploreBot"
                         ),
                         InlineKeyboardButton(
-                            "Explore More 🎊",
-                            callback_data = "exploreBot"
-                        )
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            "Close 🚶",
+                            "TUTUP",
                             callback_data = "close"
                         )
                     ]
@@ -278,17 +262,11 @@ async def _refresh(bot, callbackQuery):
                 [
                     [
                         InlineKeyboardButton(
-                            "🌟 Source Code 🌟",
-                            callback_data = "strtDevEdt"
+                            "FITUR LAINNYA",
+                            callback_data = "exploreBot"
                         ),
                         InlineKeyboardButton(
-                            "Explore Bot 🎊",
-                            callback_data = "exploreBot"
-                        )
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            "Close 🚶",
+                            "TUTUP",
                             callback_data = "close"
                         )
                     ]
