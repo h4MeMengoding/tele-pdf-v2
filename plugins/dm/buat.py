@@ -1,4 +1,4 @@
-# fileName : plugins/dm/generate.py
+# fileName : plugins/dm/buat.py
 # copyright ©️ 2021 nabilanavab
 
 
@@ -50,12 +50,12 @@ button=InlineKeyboardMarkup(
     )
 
 #--------------->
-#--------> REPLY TO /generate MESSAGE
+#--------> REPLY TO /buat MESSAGE
 #------------------->
 
 
-@ILovePDF.on_message(filters.private & filters.command(["generate"]) & ~filters.edited)
-async def generate(bot, message):
+@ILovePDF.on_message(filters.private & filters.command(["buat"]) & ~filters.edited)
+async def buat(bot, message):
     try:
         if (message.chat.id in BANNED_USERS) or (
             (ADMIN_ONLY) and (message.chat.id not in ADMINS)
@@ -66,8 +66,8 @@ async def generate(bot, message):
             )
             return
         
-        # newName : new file name(/generate ___)
-        newName = str(message.text.replace("/generate", ""))
+        # newName : new file name(/buat ___)
+        newName = str(message.text.replace("/buat", ""))
         images = PDF.get(message.chat.id)
         
         if isinstance(images, list):
