@@ -1,4 +1,4 @@
-# fileName : plugins/dm/callBack/toImages.py
+# fileName : plugins/dm/callBack/toImage.py
 # copyright ©️ 2021 nabilanavab
 
 
@@ -239,7 +239,7 @@ async def _EXTRACT(bot, callbackQuery):
                 await bot.edit_message_text(
                     chat_id = callbackQuery.message.chat.id,
                     message_id = downloadMessage.message_id,
-                    text = f"`Total halaman: {int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0])}..⏳`"
+                    text = f"`📄 - Total halaman: {int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0])}`"
                 )
                 totalPgList = range(int(pageStartAndEnd[0]), int(pageStartAndEnd[1])+1)
                 cnvrtpg = 0
@@ -276,7 +276,7 @@ async def _EXTRACT(bot, callbackQuery):
                         await bot.edit_message_text(
                             chat_id = callbackQuery.message.chat.id,
                             message_id = downloadMessage.message_id,
-                            text = f"`⏳ - Menyiapkan album`"
+                            text = f"`⏳ - Menyiapkan gambar`"
                         )
                     except Exception:
                         pass
@@ -443,7 +443,7 @@ async def _EXTRACT(bot, callbackQuery):
                 await bot.edit_message_text(
                     chat_id = callbackQuery.message.chat.id,
                     message_id = downloadMessage.message_id,
-                    text = f"`Total halaman: {len(totalPgList)}..⏳`"
+                    text = f"`📄 - Total halaman: {len(totalPgList)}`"
                 )
                 cnvrtpg = 0
                 for i in range(0, len(totalPgList), 10):
@@ -482,7 +482,7 @@ async def _EXTRACT(bot, callbackQuery):
                         await bot.edit_message_text(
                             chat_id = callbackQuery.message.chat.id,
                             message_id = downloadMessage.message_id,
-                            text = f"`⏳ - Menyiapkan album`"
+                            text = f"`⏳ - Menyiapkan gambar`"
                         )
                     except Exception:
                         pass
@@ -806,7 +806,7 @@ async def _KEXTRACT(bot, callbackQuery):
                 await bot.edit_message_text(
                     chat_id = callbackQuery.message.chat.id,
                     message_id = downloadMessage.message_id,
-                    text = f"`Total halaman: {int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0])}..⏳`"
+                    text = f"`📄 - Total halaman: {int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0])}`"
                 )
                 totalPgList = range(int(pageStartAndEnd[0]), int(pageStartAndEnd[1])+1)
                 cnvrtpg = 0
@@ -843,7 +843,7 @@ async def _KEXTRACT(bot, callbackQuery):
                         await bot.edit_message_text(
                             chat_id = callbackQuery.message.chat.id,
                             message_id = downloadMessage.message_id,
-                            text = f"`⏳ - Menyiapkan album` 🤹"
+                            text = f"`⏳ - Menyiapkan gambar` 🤹"
                         )
                     except Exception:
                         pass
@@ -1010,7 +1010,7 @@ async def _KEXTRACT(bot, callbackQuery):
                 await bot.edit_message_text(
                     chat_id = callbackQuery.message.chat.id,
                     message_id = downloadMessage.message_id,
-                    text = f"`Total halaman: {len(totalPgList)}..⏳`"
+                    text = f"`📄 - Total halaman: {len(totalPgList)}`"
                 )
                 cnvrtpg = 0
                 for i in range(0, len(totalPgList), 10):
@@ -1049,7 +1049,7 @@ async def _KEXTRACT(bot, callbackQuery):
                         await bot.edit_message_text(
                             chat_id = callbackQuery.message.chat.id,
                             message_id = downloadMessage.message_id,
-                            text = f"`⏳ - Menyiapkan album`"
+                            text = f"`⏳ - Menyiapkan gambar`"
                         )
                     except Exception:
                         pass

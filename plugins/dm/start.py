@@ -51,7 +51,7 @@ SEDANG DALAM PROSES PENGEMBANGAN
 """
 
 
-foolRefresh = """Cie boong, masuk channel dulu baru bisa gunain yaa... 😐"""
+foolRefresh = """Cie boong, masuk channel dulu baru bisa gunain yaa..."""
 
 #--------------->
 #--------> config vars

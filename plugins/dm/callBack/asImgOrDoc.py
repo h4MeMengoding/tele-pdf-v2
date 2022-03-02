@@ -130,7 +130,7 @@ KD = filters.create(lambda _, __, query: query.data.startswith("KD|"))
 async def _I(bot, callbackQuery):
     try:
         await callbackQuery.edit_message_text(
-            "__Pdf - Img » as Img » Pages:           \nTotal halaman: tidak diketahui__ 😐",
+            "__Pdf - Img » as Img » Pages:           \nTotal halaman: tidak diketahui__",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -169,7 +169,7 @@ async def _I(bot, callbackQuery):
 async def _D(bot, callbackQuery):
     try:
         await callbackQuery.edit_message_text(
-            "__Pdf - Img » as Doc » Pages:           \nTotal halaman: tidak diketahui__ 😐",
+            "__Pdf - Img » as Doc » Pages:           \nTotal halaman: tidak diketahui__",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -287,16 +287,16 @@ async def _KD(bot, callbackQuery):
 async def _toImage(bot, callbackQuery):
     try:
         await callbackQuery.edit_message_text(
-            "__Send pdf Images as:           \nTotal halaman: tidak diketahui__ 😐",
+            "__Send pdf Image as:           \nTotal halaman: tidak diketahui__",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            "Images 🖼️",
+                            "Image 🖼️",
                             callback_data="I"
                         ),
                         InlineKeyboardButton(
-                            "Documents 📂",
+                            "Dokumen 📂",
                             callback_data="D"
                         )
                     ],
@@ -319,16 +319,16 @@ async def _KtoImage(bot, callbackQuery):
     try:
         _, number_of_pages = callbackQuery.data.split("|")
         await callbackQuery.edit_message_text(
-            f"__Send pdf Images as:           \nTotal halaman: {number_of_pages}__ 😐",
+            f"__Send pdf Image as:           \nTotal halaman: {number_of_pages}__",
             reply_markup = InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            "Images 🖼️",
+                            "Image 🖼️",
                             callback_data=f"KI|{number_of_pages}"
                         ),
                         InlineKeyboardButton(
-                            "Documents 📂",
+                            "Dokumen 📂",
                             callback_data=f"KD|{number_of_pages}"
                         )
                     ],

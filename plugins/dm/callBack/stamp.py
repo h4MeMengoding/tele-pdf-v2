@@ -155,7 +155,7 @@ async def _stmp(bot, callbackQuery):
     try:
         _, annot = callbackQuery.data.split("|")
         await callbackQuery.edit_message_text(
-            "__Tambahkan Stamp » Select Color:         \nTotal halaman: tidak diketahui__ 😐",
+            "__Tambahkan Stamp » Select Color:         \nTotal halaman: tidak diketahui__",
             reply_markup = InlineKeyboardMarkup(
                 [
                     [

@@ -26,7 +26,7 @@ it was specially developed for creating PDF's from images.. And Now, Bot Support
 
 <div align="center">
 <h1><i>features:</i></h1>
-<h3>Images to PDF</h3>
+<h3>Image to PDF</h3>
 </div>
 
      ◍ This bot will helps you to convert multiple
