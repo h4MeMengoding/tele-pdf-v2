@@ -39,7 +39,7 @@ button=InlineKeyboardMarkup(
        ]
     )
 
-menuFitur = """Halo [{}](tg://user?id={}) 👋 terimakasih sudah menggunakan InHame PDF Bot, berikut perintah yang tersedia 
+menuFitur = """Terimakasih sudah menggunakan InHame PDF Bot, berikut perintah yang tersedia 
 
 `Umum`
 /start - memulai bot
@@ -54,16 +54,16 @@ menuFitur = """Halo [{}](tg://user?id={}) 👋 terimakasih sudah menggunakan InH
 /hapus - menghapus antrian sebelumnya
 
 `PDF to ...`
-To Image
-To Text
-Encrypt (memberi password pada pdf)
-Decrypt (menghapus password pada pdf)
-Compress (mengecilkan ukuran pdf)
-Rotate (mengubah rotasi gambar pdf)
-Split (memilih isi pdf untuk diambil per page)
-Merge 
-Stamp (memberi watermark pada pdf)
-Rename (merubah nama file pdf)
+__To Image__
+__To Text__
+__Encrypt__ (memberi password pada pdf)
+__Decrypt__ (menghapus password pada pdf)
+__Compress__ (mengecilkan ukuran pdf)
+__Rotate__ (mengubah rotasi gambar pdf)
+__Split__ (memilih isi pdf untuk diambil per page)
+__Merge__ 
+__Stamp__ (memberi watermark pada pdf)
+__Rename__ (merubah nama file pdf)
 """
 
 #--------------->
