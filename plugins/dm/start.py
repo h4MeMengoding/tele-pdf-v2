@@ -47,7 +47,7 @@ aboutDev = """Dev tampang jangan lupa diisi -zeyy"""
 
 
 exploreBotEdit = """
-SEDANG DALAM PROSES PENGEMBANGAN
+‼️ - SEDANG DALAM PROSES PENGEMBANGAN
 """
 
 
