@@ -26,7 +26,7 @@ notEncrypted = filters.create(lambda _, __, query: query.data == "notEncrypted")
 async def _underDev(bot, callbackQuery):
     try:
         await callbackQuery.answer(
-            "This feature is Under Development"
+            "❗ - This feature is Under Development"
         )
     except Exception:
         pass
@@ -61,7 +61,7 @@ async def _closeme(bot, callbackQuery):
 async def _notEncrypted(bot, callbackQuery):
     try:
         await callbackQuery.answer(
-            "File Not Encrypted.."
+            "❗ - FIle tidak diEncrypted"
         )
     except Exception:
         pass
