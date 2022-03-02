@@ -42,7 +42,7 @@ EXTRACT = filters.create(lambda _, __, query: query.data in ["IA", "DA", "IR", "
 KEXTRACT = filters.create(lambda _, __, query: query.data.startswith(tuple(KcbExtract)))
 
 
-# Extract pgNo (with unknown pdf page number)
+# Extract pgNo (with tidak diketahui pdf page number)
 @ILovePDF.on_callback_query(EXTRACT)
 async def _EXTRACT(bot, callbackQuery):
     try:
@@ -68,23 +68,23 @@ async def _EXTRACT(bot, callbackQuery):
                 if i >= 5:
                     await bot.send_message(
                         callbackQuery.message.chat.id,
-                        "`5 attempt over.. Process canceled..`😏"
+                        "`5 Percobaan berakhir, silahkan gagalkan`"
                     )
                     break
                 i += 1
                 # PYROMOD ADD-ON (PG NO REQUEST)
                 needPages = await bot.ask(
-                    text = "__Pdf - Img›Doc » Pages:\nNow, Enter the range (start:end) :__\n\n/exit __to cancel__",
+                    text = "__Pdf - Img›Doc » Pages:\nMasukkan rentang (range) (start:end) :__\n\n/keluar __untuk membatalkan__",
                     chat_id = callbackQuery.message.chat.id,
                     reply_to_message_id = callbackQuery.message.message_id,
                     filters = filters.text,
                     reply_markup = ForceReply(True)
                 )
                 # EXIT PROCESS
-                if needPages.text == "/exit":
+                if needPages.text == "/keluar":
                     await bot.send_message(
                         callbackQuery.message.chat.id,
-                        "`Process Cancelled..` 😏"
+                        "`☑️ - Proses dibatalkan`"
                     )
                     break
                 # SPLIT STRING TO START & END
@@ -134,13 +134,13 @@ async def _EXTRACT(bot, callbackQuery):
                 if i >= 5:
                     await bot.send_message(
                         callbackQuery.message.chat.id,
-                        "`5 attempt over.. Process canceled..`😏"
+                        "`5 Percobaan berakhir, silahkan gagalkan`"
                     )
                     break
                 i += 1
                 # PYROMOD ADD-ON
                 needPages = await bot.ask(
-                    text = "__Pdf - Img›Doc » Pages:\nNow, Enter the Page Numbers seperated by__ (,) :\n\n/exit __to cancel__",
+                    text = "__Pdf - Img›Doc » Pages:\nNow, Enter the Nomor halaman seperated by__ (,) :\n\n/keluar __untuk membatalkan__",
                     chat_id = callbackQuery.message.chat.id,
                     reply_to_message_id = callbackQuery.message.message_id,
                     filters = filters.text,
@@ -149,10 +149,10 @@ async def _EXTRACT(bot, callbackQuery):
                 # SPLIT PAGE NUMBERS (,)
                 singlePages = list(needPages.text.replace(',',':').split(':'))
                 # PROCESS CANCEL
-                if needPages.text == "/exit":
+                if needPages.text == "/keluar":
                     await bot.send_message(
                         callbackQuery.message.chat.id,
-                        "`Process Cancelled..` 😏"
+                        "`☑️ - Proses dibatalkan`"
                     )
                     break
                 # PAGE NUMBER LESS THAN 100
@@ -168,13 +168,13 @@ async def _EXTRACT(bot, callbackQuery):
                     elif newList == []:
                         await bot.send_message(
                             callbackQuery.message.chat.id,
-                            "`Cant find any number..`😏"
+                            "`❗️ - Tidak dapat menemukan nomer`"
                         )
                         continue
                 else:
                     await bot.send_message(
                         callbackQuery.message.chat.id,
-                        "`Something went Wrong..`😅"
+                        "`🔴 - Something went Wrong..`"
                     )
         if nabilanavab == True:
             PROCESS.remove(callbackQuery.message.chat.id)
@@ -221,7 +221,7 @@ async def _EXTRACT(bot, callbackQuery):
                     await bot.edit_message_text(
                         chat_id = callbackQuery.message.chat.id,
                         message_id = downloadMessage.message_id,
-                        text = f"`PDF only have {number_of_pages} pages` 💩"
+                        text = f"`PDF hanya mempunyai {number_of_pages} halaman`"
                     )
                     PROCESS.remove(callbackQuery.message.chat.id)
                     shutil.rmtree(f"{callbackQuery.message.message_id}")
@@ -254,14 +254,14 @@ async def _EXTRACT(bot, callbackQuery):
                             await bot.edit_message_text(
                                 chat_id = callbackQuery.message.chat.id,
                                 message_id = downloadMessage.message_id,
-                                text = f"`Converted: {cnvrtpg}/{int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0])} pages.. 🤞`"
+                                text = f"`Converted: {cnvrtpg}/{int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0])} halaman..`"
                             )
                         if callbackQuery.message.chat.id not in PROCESS:
                             try:
                                 await bot.edit_message_text(
                                     chat_id = callbackQuery.message.chat.id,
                                     message_id = downloadMessage.message_id,
-                                    text = f"`Canceled at {cnvrtpg}/{int(int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0]))} pages.. 🙄`"
+                                    text = f"`Dibatalkan pada {cnvrtpg}/{int(int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0]))} halaman..`"
                                 )
                                 shutil.rmtree(f'{callbackQuery.message.message_id}')
                                 doc.close()
@@ -276,7 +276,7 @@ async def _EXTRACT(bot, callbackQuery):
                         await bot.edit_message_text(
                             chat_id = callbackQuery.message.chat.id,
                             message_id = downloadMessage.message_id,
-                            text = f"`Preparing an Album..` 🤹"
+                            text = f"`⏳ - Menyiapkan album`"
                         )
                     except Exception:
                         pass
@@ -369,7 +369,7 @@ async def _EXTRACT(bot, callbackQuery):
                     await bot.edit_message_text(
                         chat_id = callbackQuery.message.chat.id,
                         message_id = downloadMessage.message_id,
-                        text = f"`Uploading: {cnvrtpg}/{int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0])} pages.. 🐬`"
+                        text = f"`Mengupload: {cnvrtpg}/{int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0])} halaman..`"
                     )
                     if data in ["IA", "IR"]:
                         if callbackQuery.message.chat.id not in PROCESS:
@@ -415,7 +415,7 @@ async def _EXTRACT(bot, callbackQuery):
                 await bot.edit_message_text(
                     chat_id = callbackQuery.message.chat.id,
                     message_id = downloadMessage.message_id,
-                    text = f'`Uploading Completed.. `🏌️'
+                    text = f'`✅ - Berhasil mengupload `'
                 )
                 shutil.rmtree(f'{callbackQuery.message.message_id}')
             if data in ["IS", "DS"]:
@@ -434,7 +434,7 @@ async def _EXTRACT(bot, callbackQuery):
                     await bot.edit_message_text(
                         chat_id = callbackQuery.message.chat.id,
                         message_id = downloadMessage.message_id,
-                        text = f"`PDF Only have {number_of_pages} page(s) `😏"
+                        text = f"`PDF hanya mempunyai {number_of_pages} halaman`"
                     )
                     PROCESS.remove(callbackQuery.message.chat.id)
                     shutil.rmtree(f'{callbackQuery.message.message_id}')
@@ -460,14 +460,14 @@ async def _EXTRACT(bot, callbackQuery):
                             await bot.edit_message_text(
                                 chat_id = callbackQuery.message.chat.id,
                                 message_id = downloadMessage.message_id,
-                                text = f"`Converted: {cnvrtpg}/{len(totalPgList)} pages.. 🤞`"
+                                text = f"`Converted: {cnvrtpg}/{len(totalPgList)} halaman..`"
                             )
                         if callbackQuery.message.chat.id not in PROCESS:
                             try:
                                 await bot.edit_message_text(
                                     chat_id = callbackQuery.message.chat.id,
                                     message_id = downloadMessage.message_id,
-                                    text = f"`Canceled at {cnvrtpg}/{len(totalPgList)} pages.. 🙄`"
+                                    text = f"`Dibatalkan pada {cnvrtpg}/{len(totalPgList)} halaman..`"
                                 )
                                 shutil.rmtree(f'{callbackQuery.message.message_id}')
                                 doc.close()
@@ -482,7 +482,7 @@ async def _EXTRACT(bot, callbackQuery):
                         await bot.edit_message_text(
                             chat_id = callbackQuery.message.chat.id,
                             message_id = downloadMessage.message_id,
-                            text = f"`Preparing an Album..` 🤹"
+                            text = f"`⏳ - Menyiapkan album`"
                         )
                     except Exception:
                         pass
@@ -575,7 +575,7 @@ async def _EXTRACT(bot, callbackQuery):
                     await bot.edit_message_text(
                         chat_id = callbackQuery.message.chat.id,
                         message_id = downloadMessage.message_id,
-                        text = f"`Uploading: {cnvrtpg}/{len(totalPgList)} pages.. 🐬`"
+                        text = f"`Mengupload: {cnvrtpg}/{len(totalPgList)} halaman..`"
                     )
                     if data == "IS":
                         if callbackQuery.message.chat.id not in PROCESS:
@@ -621,7 +621,7 @@ async def _EXTRACT(bot, callbackQuery):
                 await bot.edit_message_text(
                     chat_id = callbackQuery.message.chat.id,
                     message_id = downloadMessage.message_id,
-                    text = f'`Uploading Completed.. `🏌️'
+                    text = f'`✅ - Berhasil mengupload `🏌️'
                 )
                 shutil.rmtree(f'{callbackQuery.message.message_id}')
     except Exception as e:
@@ -653,28 +653,28 @@ async def _KEXTRACT(bot, callbackQuery):
                 if i >= 5:
                     await bot.send_message(
                         callbackQuery.message.chat.id,
-                        "`5 attempt over.. Process canceled..`😏"
+                        "`5 Percobaan berakhir, silahkan gagalkan`"
                     )
                     break
                 i += 1
                 needPages = await bot.ask(
-                    text = "__Pdf - Img›Doc » Pages:\nNow, Enter the range (start:end) :__\n\n/exit __to cancel__",
+                    text = "__Pdf - Img›Doc » Pages:\nMasukkan rentang (range) (start:end) :__\n\n/keluar __untuk membatalkan__",
                     chat_id = callbackQuery.message.chat.id,
                     reply_to_message_id = callbackQuery.message.message_id,
                     filters = filters.text,
                     reply_markup = ForceReply(True)
                 )
-                if needPages.text == "/exit":
+                if needPages.text == "/keluar":
                     await bot.send_message(
                         callbackQuery.message.chat.id,
-                        "`Process Cancelled..` 😏"
+                        "`☑️ - Proses dibatalkan`"
                     )
                     break
                 pageStartAndEnd = list(needPages.text.replace('-',':').split(':'))
                 if len(pageStartAndEnd) > 2:
                     await bot.send_message(
                         callbackQuery.message.chat.id,
-                        "`Syntax Error: justNeedStartAndEnd `🚶"
+                        "`Syntax Error: justNeedStartAndEnd `"
                     )
                 elif len(pageStartAndEnd) == 2:
                     start = pageStartAndEnd[0]
@@ -687,22 +687,22 @@ async def _KEXTRACT(bot, callbackQuery):
                             else:
                                 await bot.send_message(
                                     callbackQuery.message.chat.id,
-                                    "`Syntax Error: errorInEndingPageNumber `🚶"
+                                    "`Syntax Error: errorInEndingPageNumber `"
                                 )
                         else:
                             await bot.send_message(
                                 callbackQuery.message.chat.id,
-                                "`Syntax Error: errorInStartingPageNumber `🚶"
+                                "`Syntax Error: errorInStartingPageNumber `"
                             )
                     else:
                         await bot.send_message(
                            callbackQuery.message.chat.id,
-                            "`Syntax Error: pageNumberMustBeADigit` 🧠"
+                            "`Syntax Error: pageNumberMustBeADigit`"
                         )
                 else:
                     await bot.send_message(
                         callbackQuery.message.chat.id,
-                        "`Syntax Error: noEndingPageNumber Or notADigit` 🚶"
+                        "`Syntax Error: noEndingPageNumber Or notADigit`"
                     )
         elif data in ["KIS", "KDS"]:
             newList = []
@@ -711,22 +711,22 @@ async def _KEXTRACT(bot, callbackQuery):
                 if i >= 5:
                     await bot.send_message(
                         callbackQuery.message.chat.id,
-                        "`5 attempt over.. Process canceled..`😏"
+                        "`5 Percobaan berakhir, silahkan gagalkan`"
                     )
                     break
                 i += 1
                 needPages = await bot.ask(
-                    text = "__Pdf - Img›Doc » Pages:\nNow, Enter the Page Numbers seperated by__ (,) :\n\n/exit __to cancel__",
+                    text = "__Pdf - Img›Doc » Pages:\nMasukkan nomor halaman seperated by__ (,) :\n\n/keluar __untuk membatalkan__",
                     chat_id = callbackQuery.message.chat.id,
                     reply_to_message_id = callbackQuery.message.message_id,
                     filters = filters.text,
                     reply_markup = ForceReply(True)
                 )
                 singlePages = list(needPages.text.replace(',',':').split(':'))
-                if needPages.text == "/exit":
+                if needPages.text == "/keluar":
                     await bot.send_message(
                         callbackQuery.message.chat.id,
-                        "`Process Cancelled..` 😏"
+                        "`☑️ - Proses dibatalkan`"
                     )
                     break
                 elif 1 <= len(singlePages) <= 100:
@@ -739,13 +739,13 @@ async def _KEXTRACT(bot, callbackQuery):
                     elif newList == []:
                         await bot.send_message(
                             callbackQuery.message.chat.id,
-                            "`Cant find any number..`😏"
+                            "`❗️ - Tidak dapat menemukan nomer`"
                         )
                         continue
                 else:
                     await bot.send_message(
                         callbackQuery.message.chat.id,
-                        "`100 page is enough..`😅"
+                        "`100 page is enough..`"
                     )
         if nabilanavab == True:
             PROCESS.remove(callbackQuery.message.chat.id)
@@ -788,7 +788,7 @@ async def _KEXTRACT(bot, callbackQuery):
                     await bot.edit_message_text(
                         chat_id = callbackQuery.message.chat.id,
                         message_id = downloadMessage.message_id,
-                        text = f"`PDF only have {number_of_pages} pages` 💩"
+                        text = f"`PDF hanya mempunyai {number_of_pages} pages`"
                     )
                     PROCESS.remove(callbackQuery.message.chat.id)
                     shutil.rmtree(f"{callbackQuery.message.message_id}")
@@ -828,7 +828,7 @@ async def _KEXTRACT(bot, callbackQuery):
                                 await bot.edit_message_text(
                                     chat_id = callbackQuery.message.chat.id,
                                     message_id = downloadMessage.message_id,
-                                    text = f"`Canceled at {cnvrtpg}/{int(int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0]))} pages.. 🙄`"
+                                    text = f"`Dibatalkan pada {cnvrtpg}/{int(int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0]))} pages.. 🙄`"
                                 )
                                 shutil.rmtree(f'{callbackQuery.message.message_id}')
                                 doc.close()
@@ -843,7 +843,7 @@ async def _KEXTRACT(bot, callbackQuery):
                         await bot.edit_message_text(
                             chat_id = callbackQuery.message.chat.id,
                             message_id = downloadMessage.message_id,
-                            text = f"`Preparing an Album..` 🤹"
+                            text = f"`⏳ - Menyiapkan album` 🤹"
                         )
                     except Exception:
                         pass
@@ -936,7 +936,7 @@ async def _KEXTRACT(bot, callbackQuery):
                     await bot.edit_message_text(
                         chat_id = callbackQuery.message.chat.id,
                         message_id = downloadMessage.message_id,
-                        text = f"`Uploading: {cnvrtpg}/{int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0])} pages.. 🐬`"
+                        text = f"`Mengupload: {cnvrtpg}/{int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0])} halaman..`"
                     )
                     if data in ["KIA", "KIR"]:
                         if callbackQuery.message.chat.id not in PROCESS:
@@ -982,7 +982,7 @@ async def _KEXTRACT(bot, callbackQuery):
                 await bot.edit_message_text(
                     chat_id = callbackQuery.message.chat.id,
                     message_id = downloadMessage.message_id,
-                    text = f'`Uploading Completed.. `🏌️'
+                    text = f'`✅ - Berhasil mengupload `🏌️'
                 )
                 shutil.rmtree(f'{callbackQuery.message.message_id}')
             if data in ["KIS", "KDS"]:
@@ -1001,7 +1001,7 @@ async def _KEXTRACT(bot, callbackQuery):
                     await bot.edit_message_text(
                         chat_id = callbackQuery.message.chat.id,
                         message_id = downloadMessage.message_id,
-                        text = f"`PDF Only have {number_of_pages} page(s) `😏"
+                        text = f"`PDF hanya mempunyai {number_of_pages} halaman`"
                     )
                     PROCESS.remove(callbackQuery.message.chat.id)
                     shutil.rmtree(f'{callbackQuery.message.message_id}')
@@ -1027,14 +1027,14 @@ async def _KEXTRACT(bot, callbackQuery):
                             await bot.edit_message_text(
                                 chat_id = callbackQuery.message.chat.id,
                                 message_id = downloadMessage.message_id,
-                                text = f"`Converted: {cnvrtpg}/{len(totalPgList)} pages.. 🤞`"
+                                text = f"`Converted: {cnvrtpg}/{len(totalPgList)} halaman..`"
                             )
                         if callbackQuery.message.chat.id not in PROCESS:
                             try:
                                 await bot.edit_message_text(
                                     chat_id = callbackQuery.message.chat.id,
                                     message_id = downloadMessage.message_id,
-                                    text = f"`Canceled at {cnvrtpg}/{len(totalPgList)} pages.. 🙄`"
+                                    text = f"`Dibatalkan pada {cnvrtpg}/{len(totalPgList)} halaman..`"
                                 )
                                 shutil.rmtree(f'{callbackQuery.message.message_id}')
                                 doc.close()
@@ -1049,7 +1049,7 @@ async def _KEXTRACT(bot, callbackQuery):
                         await bot.edit_message_text(
                             chat_id = callbackQuery.message.chat.id,
                             message_id = downloadMessage.message_id,
-                            text = f"`Preparing an Album..` 🤹"
+                            text = f"`⏳ - Menyiapkan album`"
                         )
                     except Exception:
                         pass
@@ -1142,7 +1142,7 @@ async def _KEXTRACT(bot, callbackQuery):
                     await bot.edit_message_text(
                         chat_id = callbackQuery.message.chat.id,
                         message_id = downloadMessage.message_id,
-                        text = f"`Uploading: {cnvrtpg}/{len(totalPgList)} pages.. 🐬`"
+                        text = f"`Mengupload: {cnvrtpg}/{len(totalPgList)} halaman..`"
                     )
                     if data == "KIS":
                         if callbackQuery.message.chat.id not in PROCESS:
@@ -1188,7 +1188,7 @@ async def _KEXTRACT(bot, callbackQuery):
                 await bot.edit_message_text(
                     chat_id = callbackQuery.message.chat.id,
                     message_id = downloadMessage.message_id,
-                    text = f'`Uploading Completed.. `🏌️'
+                    text = f'`✅ - Berhasil mengupload `🏌️'
                 )
                 shutil.rmtree(f'{callbackQuery.message.message_id}')
     except Exception as e:

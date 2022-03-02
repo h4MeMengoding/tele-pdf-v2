@@ -62,12 +62,12 @@ toText = filters.create(lambda _, __, query: query.data == "toText")
 KtoText = filters.create(lambda _, __, query: query.data.startswith("KtoText|"))
 
 
-# pdf to images (with unknown pdf page number)
+# pdf to images (with tidak diketahui pdf page number)
 @ILovePDF.on_callback_query(toText)
 async def _toText(bot, callbackQuery):
     try:
         await callbackQuery.edit_message_text(
-            "__Pdf » Text\nTotal halaman: unknown 😐         \nNow, Specify the format:__",
+            "__Pdf » Text\nTotal halaman: Tidak diketahui         \nNow, Specify the format:__",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -145,14 +145,14 @@ async def _KtoText(bot, callbackQuery):
         pass
 
 
-# to Text file (with unknown pdf page number)
+# to Text file (with tidak diketahui pdf page number)
 @ILovePDF.on_callback_query(T)
 async def _T(bot, callbackQuery):
     try:
         # CHECH USER PROCESS
         if callbackQuery.message.chat.id in PROCESS:
             await callbackQuery.answer(
-                "Work in progress..🙇"
+                "⏳ - Sedang dalam proses"
             )
             return
         # ADD TO PROCESS
@@ -220,13 +220,13 @@ async def _T(bot, callbackQuery):
             pass
 
 
-# to Text message (with unknown pdf page number)
+# to Text message (with tidak diketahui pdf page number)
 @ILovePDF.on_callback_query(M)
 async def _M(bot, callbackQuery):
     try:
         if callbackQuery.message.chat.id in PROCESS:
             await callbackQuery.answer(
-                "Work in progress..🙇"
+                "⏳ - Sedang dalam proses"
             )
             return
         PROCESS.append(callbackQuery.message.chat.id)
@@ -285,13 +285,13 @@ async def _M(bot, callbackQuery):
             pass
 
 
-# to Html file (with unknown pdf page number)
+# to Html file (with tidak diketahui pdf page number)
 @ILovePDF.on_callback_query(H)
 async def _H(bot, callbackQuery):
     try:
         if callbackQuery.message.chat.id in PROCESS:
             await callbackQuery.answer(
-                "Work in progress..🙇"
+                "⏳ - Sedang dalam proses"
             )
             return
         PROCESS.append(callbackQuery.message.chat.id)
@@ -358,13 +358,13 @@ async def _H(bot, callbackQuery):
             pass
 
 
-# to Text file (with unknown pdf page number)
+# to Text file (with tidak diketahui pdf page number)
 @ILovePDF.on_callback_query(J)
 async def _J(bot, callbackQuery):
     try:
         if callbackQuery.message.chat.id in PROCESS:
             await callbackQuery.answer(
-                "Work in progress..🙇"
+                "⏳ - Sedang dalam proses"
             )
             return
         PROCESS.append(callbackQuery.message.chat.id)

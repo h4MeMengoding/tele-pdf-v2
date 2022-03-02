@@ -125,12 +125,12 @@ KI = filters.create(lambda _, __, query: query.data.startswith("KI|"))
 KD = filters.create(lambda _, __, query: query.data.startswith("KD|"))
 
 
-# Extract pgNo (with unknown pdf page number)
+# Extract pgNo (with tidak diketahui pdf page number)
 @ILovePDF.on_callback_query(I)
 async def _I(bot, callbackQuery):
     try:
         await callbackQuery.edit_message_text(
-            "__Pdf - Img » as Img » Pages:           \nTotal halaman: unknown__ 😐",
+            "__Pdf - Img » as Img » Pages:           \nTotal halaman: tidak diketahui__ 😐",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -164,12 +164,12 @@ async def _I(bot, callbackQuery):
         pass
 
 
-# Extract pgNo (with unknown pdf page number)
+# Extract pgNo (with tidak diketahui pdf page number)
 @ILovePDF.on_callback_query(D)
 async def _D(bot, callbackQuery):
     try:
         await callbackQuery.edit_message_text(
-            "__Pdf - Img » as Doc » Pages:           \nTotal halaman: unknown__ 😐",
+            "__Pdf - Img » as Doc » Pages:           \nTotal halaman: tidak diketahui__ 😐",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -282,12 +282,12 @@ async def _KD(bot, callbackQuery):
     except Exception:
         pass
 
-# pdf to images (with unknown pdf page number)
+# pdf to images (with tidak diketahui pdf page number)
 @ILovePDF.on_callback_query(toImage)
 async def _toImage(bot, callbackQuery):
     try:
         await callbackQuery.edit_message_text(
-            "__Send pdf Images as:           \nTotal halaman: unknown__ 😐",
+            "__Send pdf Images as:           \nTotal halaman: tidak diketahui__ 😐",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -334,7 +334,7 @@ async def _KtoImage(bot, callbackQuery):
                     ],
                     [
                         InlineKeyboardButton(
-                            "«Kembali «",
+                            "« Kembali «",
                             callback_data=f"KBTPM|{number_of_pages}"
                         )
                     ]
@@ -345,7 +345,7 @@ async def _KtoImage(bot, callbackQuery):
         pass
 
 
-# back to pdf message (unknown page number)
+# back to pdf message (tidak diketahui page number)
 @ILovePDF.on_callback_query(BTPM)
 async def _BTPM(bot, callbackQuery):
     try:

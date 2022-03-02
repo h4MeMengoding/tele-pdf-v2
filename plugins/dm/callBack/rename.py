@@ -38,7 +38,7 @@ async def _encrypt(bot, callbackQuery):
         # CHECKS PROCESS
         if callbackQuery.message.chat.id in PROCESS:
             await callbackQuery.answer(
-                "Work in progress..🙇",
+                "⏳ - Sedang dalam proses",
             )
             return
         # ADDED TO PROCESS
@@ -54,7 +54,7 @@ async def _encrypt(bot, callbackQuery):
         # /exit CANCELS
         if newName.text == "/exit":
             await newName.reply_text(
-                "`process canceled.. `😏"
+                "`☑️ - Proses dibatalkan`"
             )
             PROCESS.remove(callbackQuery.message.chat.id)
             return
@@ -87,7 +87,7 @@ async def _encrypt(bot, callbackQuery):
             PROCESS.remove(callbackQuery.message.chat.id)
             return
         await downloadMessage.edit(
-            "`Started Uploading..`🏋️"
+            "`📤 - Mengirim file`"
         )
         await bot.send_chat_action(
             callbackQuery.message.chat.id, "upload_document"
@@ -96,7 +96,7 @@ async def _encrypt(bot, callbackQuery):
         await callbackQuery.message.reply_document(
             document=open(newName, "rb"),
             thumb=PDF_THUMBNAIL,
-            caption="Old Name: `{}`\nNew Name: `{}`".format(
+            caption="Nama Awal: `{}`\nNama Baru: `{}`".format(
                 input_file, newName
             )
         )

@@ -76,7 +76,7 @@ async def _compress(bot, callbackQuery):
             PROCESS.remove(callbackQuery.message.chat.id)
             return
         await downloadMessage.edit(
-            "`Memulai Compressing..`"
+            "`🗜️ - Memulai Compressing`"
         )
         # CHECK PDF OR NOT(HERE compressed, SO PG UNKNOWN)
         if data == "compress":

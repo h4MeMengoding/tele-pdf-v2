@@ -1,4 +1,4 @@
-# fileName : plugins/dm/callBack/stamp.py
+# fileName : plugins/dm/callKembali/stamp.py
 # copyright ©️ 2021 nabilanavab
 
 
@@ -68,38 +68,38 @@ color = filters.create(lambda _, __, query: query.data.startswith(tuple(colors))
 
 
 
-# stamp selet message(with unknown pdf page number)
+# stamp selet message(with tidak diketahui pdf page number)
 @ILovePDF.on_callback_query(stamp)
 async def _stamp(bot, callbackQuery):
     try:
         await callbackQuery.edit_message_text(
-            "__Add Stamp » Select Stamp:         \nTotal halaman: unknown__ 😐",
+            "__Tambahkan Stamp » Select Stamp:         \nTotal halaman: tidak diketahui__",
             reply_markup = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("Not For Public Release 🤧", callback_data="stmp|10")
+                        InlineKeyboardButton("Not For Public Release", callback_data="stmp|10")
                     ],[
-                        InlineKeyboardButton("For Public Release 🥱", callback_data="stmp|8")
+                        InlineKeyboardButton("For Public Release", callback_data="stmp|8")
                     ],[
-                        InlineKeyboardButton("Confidential 🤫", callback_data="stmp|2"),
-                        InlineKeyboardButton("Departmental 🤝", callback_data="stmp|3")
+                        InlineKeyboardButton("Confidential", callback_data="stmp|2"),
+                        InlineKeyboardButton("Departmental", callback_data="stmp|3")
                     ],[
-                        InlineKeyboardButton("Experimental 🔬", callback_data="stmp|4"),
-                        InlineKeyboardButton("Expired 🐀",callback_data="stmp|5")
+                        InlineKeyboardButton("Experimental", callback_data="stmp|4"),
+                        InlineKeyboardButton("Expired",callback_data="stmp|5")
                     ],[
-                        InlineKeyboardButton("Final 🔧", callback_data="stmp|6"),
-                        InlineKeyboardButton("For Comment 🗯️",callback_data="stmp|7")
+                        InlineKeyboardButton("Final", callback_data="stmp|6"),
+                        InlineKeyboardButton("For Comment",callback_data="stmp|7")
                     ],[
-                        InlineKeyboardButton("Not Approved 😒",callback_data="stmp|9"),
-                        InlineKeyboardButton("Approved 🥳", callback_data="stmp|0")
+                        InlineKeyboardButton("Not Approved",callback_data="stmp|9"),
+                        InlineKeyboardButton("Approved", callback_data="stmp|0")
                     ],[
-                        InlineKeyboardButton("Sold ✊",callback_data="stmp|11"),
-                        InlineKeyboardButton("Top Secret 😷", callback_data="stmp|12"),
+                        InlineKeyboardButton("Sold",callback_data="stmp|11"),
+                        InlineKeyboardButton("Top Secret", callback_data="stmp|12"),
                     ],[
-                        InlineKeyboardButton("Draft 👀",callback_data="stmp|13"),
-                        InlineKeyboardButton("AsIs 🤏", callback_data="stmp|1")
+                        InlineKeyboardButton("Draft",callback_data="stmp|13"),
+                        InlineKeyboardButton("AsIs", callback_data="stmp|1")
                     ],[
-                        InlineKeyboardButton("« Back «", callback_data="BTPM")
+                        InlineKeyboardButton("« Kembali «", callback_data="BTPM")
                     ]
                 ]
             )
@@ -114,33 +114,33 @@ async def _Kstamp(bot, callbackQuery):
     try:
         _, number_of_pages = callbackQuery.data.split("|")
         await callbackQuery.edit_message_text(
-            f"__Add Stamp » Select Stamp:         \nTotal halaman: {number_of_pages}__ 🌟",
+            f"__Tambahkan Stamp » Select Stamp:         \nTotal halaman: {number_of_pages}__ 🌟",
             reply_markup = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("Not For Public Release 🤧", callback_data=f"Kstmp|{number_of_pages}|10")
+                        InlineKeyboardButton("Not For Public Release", callback_data=f"Kstmp|{number_of_pages}|10")
                     ],[
-                        InlineKeyboardButton("For Public Release 🥱", callback_data=f"Kstmp|{number_of_pages}|8")
+                        InlineKeyboardButton("For Public Release", callback_data=f"Kstmp|{number_of_pages}|8")
                     ],[
-                        InlineKeyboardButton("Confidential 🤫", callback_data=f"Kstmp|{number_of_pages}|2"),
-                        InlineKeyboardButton("Departmental 🤝", callback_data=f"Kstmp|{number_of_pages}|3")
+                        InlineKeyboardButton("Confidential", callback_data=f"Kstmp|{number_of_pages}|2"),
+                        InlineKeyboardButton("Departmental", callback_data=f"Kstmp|{number_of_pages}|3")
                     ],[
-                        InlineKeyboardButton("Experimental 🔬", callback_data=f"Kstmp|{number_of_pages}|4"),
-                        InlineKeyboardButton("Expired 🐀",callback_data=f"Kstmp|{number_of_pages}|5")
+                        InlineKeyboardButton("Experimental", callback_data=f"Kstmp|{number_of_pages}|4"),
+                        InlineKeyboardButton("Expired",callback_data=f"Kstmp|{number_of_pages}|5")
                     ],[
-                        InlineKeyboardButton("Final 🔧", callback_data=f"Kstmp|{number_of_pages}|6"),
-                        InlineKeyboardButton("For Comment 🗯️",callback_data=f"Kstmp|{number_of_pages}|7")
+                        InlineKeyboardButton("Final", callback_data=f"Kstmp|{number_of_pages}|6"),
+                        InlineKeyboardButton("For Comment",callback_data=f"Kstmp|{number_of_pages}|7")
                     ],[
-                        InlineKeyboardButton("Not Approved 😒",callback_data=f"Kstmp|{number_of_pages}|9"),
-                        InlineKeyboardButton("Approved 🥳", callback_data=f"Kstmp|{number_of_pages}|0")
+                        InlineKeyboardButton("Not Approved",callback_data=f"Kstmp|{number_of_pages}|9"),
+                        InlineKeyboardButton("Approved", callback_data=f"Kstmp|{number_of_pages}|0")
                     ],[
-                        InlineKeyboardButton("Sold ✊",callback_data=f"Kstmp|{number_of_pages}|11"),
-                        InlineKeyboardButton("Top Secret 😷", callback_data=f"Kstmp|{number_of_pages}|12"),
+                        InlineKeyboardButton("Sold",callback_data=f"Kstmp|{number_of_pages}|11"),
+                        InlineKeyboardButton("Top Secret", callback_data=f"Kstmp|{number_of_pages}|12"),
                     ],[
-                        InlineKeyboardButton("Draft 👀",callback_data=f"Kstmp|{number_of_pages}|13"),
-                        InlineKeyboardButton("AsIs 🤏", callback_data=f"Kstmp|{number_of_pages}|1")
+                        InlineKeyboardButton("Draft",callback_data=f"Kstmp|{number_of_pages}|13"),
+                        InlineKeyboardButton("AsIs", callback_data=f"Kstmp|{number_of_pages}|1")
                     ],[
-                        InlineKeyboardButton("« Back «", callback_data=f"KBTPM|{number_of_pages}")
+                        InlineKeyboardButton("« Kembali «", callback_data=f"KBTPM|{number_of_pages}")
                     ]
                 ]
             )
@@ -149,29 +149,29 @@ async def _Kstamp(bot, callbackQuery):
         pass
 
 
-# Stamp color message (with unknown pdf page number)
+# Stamp color message (with tidak diketahui pdf page number)
 @ILovePDF.on_callback_query(stmp)
 async def _stmp(bot, callbackQuery):
     try:
         _, annot = callbackQuery.data.split("|")
         await callbackQuery.edit_message_text(
-            "__Add Stamp » Select Color:         \nTotal halaman: unknown__ 😐",
+            "__Tambahkan Stamp » Select Color:         \nTotal halaman: tidak diketahui__ 😐",
             reply_markup = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("Red ❤️", callback_data=f"color|{annot}|r"),
-                        InlineKeyboardButton("Blue 💙", callback_data=f"color|{annot}|b")
+                        InlineKeyboardButton("🔴Red🔴", callback_data=f"color|{annot}|r"),
+                        InlineKeyboardButton("🔵Blue🔵", callback_data=f"color|{annot}|b")
                     ],[
-                        InlineKeyboardButton("Green 💚", callback_data=f"color|{annot}|g"),
-                        InlineKeyboardButton("Yellow 💛", callback_data=f"color|{annot}|c1")
+                        InlineKeyboardButton("🟢Green🟢", callback_data=f"color|{annot}|g"),
+                        InlineKeyboardButton("🟡Yellow🟡", callback_data=f"color|{annot}|c1")
                     ],[
-                        InlineKeyboardButton("Pink 💜", callback_data=f"color|{annot}|c2"),
-                        InlineKeyboardButton("Hue 💚", callback_data=f"color|{annot}|c3")
+                        InlineKeyboardButton("Pink", callback_data=f"color|{annot}|c2"),
+                        InlineKeyboardButton("🟢Hue🟢", callback_data=f"color|{annot}|c3")
                     ],[
-                        InlineKeyboardButton("White 🤍", callback_data=f"color|{annot}|c4"),
-                        InlineKeyboardButton("Black 🖤", callback_data=f"color|{annot}|c5")
+                        InlineKeyboardButton("⚪White⚪", callback_data=f"color|{annot}|c4"),
+                        InlineKeyboardButton("⚫Black⚫", callback_data=f"color|{annot}|c5")
                     ],[
-                        InlineKeyboardButton("« Back «", callback_data=f"stamp")
+                        InlineKeyboardButton("« Kembali «", callback_data=f"stamp")
                     ]
                 ]
             )
@@ -186,23 +186,23 @@ async def _Kstmp(bot, callbackQuery):
     try:
         _, number_of_pages, annot = callbackQuery.data.split("|")
         await callbackQuery.edit_message_text(
-            f"__Add Stamp » Select Color:         \nTotal halaman: {number_of_pages}__ 🌟",
+            f"__Tambahkan Stamp » Select Color:         \nTotal halaman: {number_of_pages}__ 🌟",
             reply_markup = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("Red ❤️", callback_data=f"Kcolor|{annot}|r"),
-                        InlineKeyboardButton("Blue 💙", callback_data=f"Kcolor|{annot}|b")
+                        InlineKeyboardButton("🔴Red🔴", callback_data=f"Kcolor|{annot}|r"),
+                        InlineKeyboardButton("🔵Blue🔵", callback_data=f"Kcolor|{annot}|b")
                     ],[
-                        InlineKeyboardButton("Green 💚", callback_data=f"Kcolor|{annot}|g"),
-                        InlineKeyboardButton("Yellow 💛", callback_data=f"Kcolor|{annot}|c1")
+                        InlineKeyboardButton("🟢Green🟢", callback_data=f"Kcolor|{annot}|g"),
+                        InlineKeyboardButton("🟡Yellow🟡", callback_data=f"Kcolor|{annot}|c1")
                     ],[
-                        InlineKeyboardButton("Pink 💜", callback_data=f"Kcolor|{annot}|c2"),
-                        InlineKeyboardButton("Hue 💚", callback_data=f"Kcolor|{annot}|c3")
+                        InlineKeyboardButton("Pink", callback_data=f"Kcolor|{annot}|c2"),
+                        InlineKeyboardButton("🟢Hue🟢", callback_data=f"Kcolor|{annot}|c3")
                     ],[
-                        InlineKeyboardButton("White 🤍", callback_data=f"Kcolor|{annot}|c4"),
-                        InlineKeyboardButton("Black 🖤", callback_data=f"Kcolor|{annot}|c5")
+                        InlineKeyboardButton("⚪White⚪", callback_data=f"Kcolor|{annot}|c4"),
+                        InlineKeyboardButton("⚫Black⚫", callback_data=f"Kcolor|{annot}|c5")
                     ],[
-                        InlineKeyboardButton("« Back «", callback_data=f"Kstamp|{number_of_pages}")
+                        InlineKeyboardButton("« Kembali «", callback_data=f"Kstamp|{number_of_pages}")
                     ]
                 ]
             )
@@ -269,7 +269,7 @@ async def _color(bot, callbackQuery):
             return
         #STAMPING STARTED
         await downloadMessage.edit(
-            "`Started Stamping..` 💠"
+            "`🔖 - Memulai Stamping`"
         )
         if data.startswith("color"):
             checked = await checkPdf(input_file, callbackQuery)
@@ -291,7 +291,7 @@ async def _color(bot, callbackQuery):
             "upload_document"
         )
         await downloadMessage.edit(
-            "`Started Uploading..` 🏋️"
+            "`⏳ - Mengirim...`"
         )
         # SEND DOCUMENT
         await callbackQuery.message.reply_document(

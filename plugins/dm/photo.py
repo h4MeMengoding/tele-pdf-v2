@@ -114,7 +114,7 @@ async def images(bot, message):
             return
         imageReply = await bot.send_message(
             message.chat.id,
-            "`⏳- Mengunduh Gambar Anda`",
+            "`⏳ - Mengunduh Gambar Anda`",
             reply_to_message_id = message.message_id
         )
         if not isinstance(PDF.get(message.chat.id), list):

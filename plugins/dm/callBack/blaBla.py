@@ -26,7 +26,7 @@ notEncrypted = filters.create(lambda _, __, query: query.data == "notEncrypted")
 async def _underDev(bot, callbackQuery):
     try:
         await callbackQuery.answer(
-            "This feature is Under Development ⛷️"
+            "This feature is Under Development"
         )
     except Exception:
         pass
@@ -50,7 +50,7 @@ async def _closeme(bot, callbackQuery):
         except Exception:
             pass
         await callbackQuery.answer(
-            "Proses dibatalkan"
+            "`☑️ - Proses dibatalkan`"
         )
         PROCESS.remove(callbackQuery.message.chat.id)
     except Exception:

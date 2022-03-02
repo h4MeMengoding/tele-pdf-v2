@@ -1,4 +1,4 @@
-# fileName : plugins/dm/callBack/split.py
+# fileName : plugins/dm/callKembali/split.py
 # copyright ©️ 2021 nabilanavab
 
 
@@ -46,29 +46,29 @@ KsplitS = filters.create(lambda _, __, query: query.data.startswith("KsplitS|"))
 
 
 
-# Split pgNo (with unknown pdf page number)
+# Split pgNo (with tidak diketahui pdf page number)
 @ILovePDF.on_callback_query(split)
 async def _split(bot, callbackQuery):
     try:
         await callbackQuery.edit_message_text(
-            "__Split pdf » Pages:            \n\nTotal Page Number(s):__ `unknown`",
+            "__Split pdf » Pages:            \n\nTotal Nomor halaman:__ `tidak diketahui`",
             reply_markup = InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            "With In Range 🦞",
+                            "With In Range",
                             callback_data = "splitR"
                         )
                     ],
                     [
                         InlineKeyboardButton(
-                            "Single Page 🐛",
+                            "Single Page",
                             callback_data = "splitS"
                         )
                     ],
                     [
                         InlineKeyboardButton(
-                            "« Back «",
+                            "« Kembali «",
                             callback_data = "BTPM"
                         )
                     ]
@@ -85,24 +85,24 @@ async def _Ksplit(bot, callbackQuery):
     try:
         _, number_of_pages = callbackQuery.data.split("|")
         await callbackQuery.edit_message_text(
-            f"Split pdf » Pages:          \n\nTotal Page Number(s): {number_of_pages}__ 🌟",
+            f"Split pdf » Pages:          \n\nTotal Nomor halaman: {number_of_pages}__ 🌟",
             reply_markup = InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            "With In Range 🦞",
+                            "With In Range",
                             callback_data = f"KsplitR|{number_of_pages}"
                         )
                     ],
                     [
                         InlineKeyboardButton(
-                            "Single Page 🐛",
+                            "Single Page",
                             callback_data = f"KsplitS|{number_of_pages}"
                         )
                     ],
                     [
                         InlineKeyboardButton(
-                            "« Back «",
+                            "« Kembali «",
                             callback_data = f"KBTPM|{number_of_pages}"
                         )
                     ]
@@ -113,13 +113,13 @@ async def _Ksplit(bot, callbackQuery):
         pass
 
 
-# Split (with unknown pdf page number)
+# Split (with tidak diketahui pdf page number)
 @ILovePDF.on_callback_query(splitR)
 async def _splitROrS(bot, callbackQuery):
     try:
         if callbackQuery.message.chat.id in PROCESS:
             await callbackQuery.answer(
-                "Work in progress..🙇"
+                "⏳ - Sedang dalam proses"
             )
             return
         
@@ -131,24 +131,24 @@ async def _splitROrS(bot, callbackQuery):
             if i >= 5:
                 await bot.send_message(
                     callbackQuery.message.chat.id,
-                    "`5 attempt over.. Process canceled..`😏"
+                    "`5 kali percobaan, proses gagal..`"
                 )
                 break
             
             i += 1
             
             needPages = await bot.ask(
-                text = "__Pdf Split » By Range\nNow, Enter the range (start:end) :__\n\n/exit __to cancel__",
+                text = "__Pdf Split » By Range\nSilahkan masukkan range (start:end) :__\n\n/keluar __untuk mengagalkan__",
                 chat_id = callbackQuery.message.chat.id,
                 reply_to_message_id = callbackQuery.message.message_id,
                 filters = filters.text,
                 reply_markup = ForceReply(True)
             )
             
-            if needPages.text == "/exit":
+            if needPages.text == "/keluar":
                 await bot.send_message(
                     callbackQuery.message.chat.id,
-                    "`Process Cancelled..` 😏"
+                    "`☑️ - Proses dibatalkan`"
                 )
                 break
             
@@ -175,22 +175,22 @@ async def _splitROrS(bot, callbackQuery):
                         else:
                             await bot.send_message(
                                 callbackQuery.message.chat.id,
-                                "`Syntax Error: errorInEndingPageNumber `🚶"
+                                "`Syntax Error: errorInEndingPageNumber "
                             )
                     else:
                         await bot.send_message(
                             callbackQuery.message.chat.id,
-                            "`Syntax Error: errorInStartingPageNumber `🚶"
+                            "`Syntax Error: errorInStartingPageNumber "
                         )
                 else:
                     await bot.send_message(
                         callbackQuery.message.chat.id,
-                        "`Syntax Error: pageNumberMustBeADigit` 🧠"
+                        "`Syntax Error: pageNumberMustBeADigit`"
                     )
             else:
                 await bot.send_message(
                     callbackQuery.message.chat.id,
-                    "`Syntax Error: noEndingPageNumber Or notADigit` 🚶"
+                    "`Syntax Error: noEndingPageNumber Or notADigit`"
                 )
         
         if nabilanavab == True:
@@ -221,7 +221,7 @@ async def _splitROrS(bot, callbackQuery):
                 return
             
             await downloadMessage.edit(
-                "`Downloading Completed..🤞`"
+                "`✅ - Download selesai`"
             )
             
             checked = await checkPdf(f'{callbackQuery.message.message_id}/pdf.pdf', callbackQuery)
@@ -235,7 +235,7 @@ async def _splitROrS(bot, callbackQuery):
             if not(int(pageStartAndEnd[1]) <= int(number_of_pages)):
                 await bot.send_message(
                     callbackQuery.message.chat.id,
-                    "`1st Check Number of pages` 😏"
+                    "`Cek nomer halaman kembali`"
                 )
                 PROCESS.remove(callbackQuery.message.chat.id)
                 shutil.rmtree(f"{callbackQuery.message.message_id}")
@@ -266,7 +266,7 @@ async def _splitROrS(bot, callbackQuery):
                 caption = f"from `{pageStartAndEnd[0]}` to `{pageStartAndEnd[1]}`"
             )
             await downloadMessage.edit(
-                "`Uploading Completed..`🤞"
+                "`✅ - Berhasil mengupload`"
             )
             
             PROCESS.remove(callbackQuery.message.chat.id)
@@ -281,13 +281,13 @@ async def _splitROrS(bot, callbackQuery):
             pass
 
 
-# Split (with unknown pdf page number)
+# Split (with tidak diketahui pdf page number)
 @ILovePDF.on_callback_query(splitS)
 async def _splitS(bot, callbackQuery):
     try:
         if callbackQuery.message.chat.id in PROCESS:
             await callbackQuery.answer(
-                "Work in progress..🙇"
+                "⏳ - Sedang dalam proses"
             )
             return
         
@@ -300,14 +300,14 @@ async def _splitS(bot, callbackQuery):
             if i >= 5:
                 bot.send_message(
                     callbackQuery.message.chat.id,
-                    "`5 attempt over.. Process canceled..`😏"
+                    "`5 Percobaan berakhir, silahkan gagalkan`"
                 )
                 break
             
             i += 1
             
             needPages = await bot.ask(
-                text = "__Pdf Split » By Pages\nNow, Enter Page Numbers seperate by__ (,) :\n\n/exit __to cancel__",
+                text = "__Pdf Split » By Pages\nMasukkan Nomor halaman seperate by__ (,) :\n\n/keluar __untuk mengagalkan__",
                 chat_id = callbackQuery.message.chat.id,
                 reply_to_message_id = callbackQuery.message.message_id,
                 filters = filters.text,
@@ -316,10 +316,10 @@ async def _splitS(bot, callbackQuery):
             
             singlePages = list(needPages.text.replace(',',':').split(':'))
             
-            if needPages.text == "/exit":
+            if needPages.text == "/keluar":
                 await bot.send_message(
                     callbackQuery.message.chat.id,
-                    "`Process Cancelled..` 😏"
+                    "`☑️ - Proses dibatalkan`"
                 )
                 break
             
@@ -334,7 +334,7 @@ async def _splitS(bot, callbackQuery):
                     elif newList == []:
                         await bot.send_message(
                             callbackQuery.message.chat.id,
-                            "`Cant find any number..`😏"
+                            "`❗️ - Tidak dapat menemukan nomer`"
                         )
                         continue
                 except Exception:
@@ -343,7 +343,7 @@ async def _splitS(bot, callbackQuery):
             else:
                 await bot.send_message(
                     callbackQuery.message.chat.id,
-                    "`Something went Wrong..`😅"
+                    "`🔴 - Something went Wrong..`😅"
                 )
         
         if nabilanavab == True:
@@ -353,7 +353,7 @@ async def _splitS(bot, callbackQuery):
             downloadMessage = await bot.send_message(
                 chat_id = callbackQuery.message.chat.id,
                 reply_to_message_id = callbackQuery.message.message_id,
-                text = "`Downloding your pdf..`⏳"
+                text = "`📥 - Mendownload PDF`"
             )
             file_id = callbackQuery.message.reply_to_message.document.file_id
             fileSize = callbackQuery.message.reply_to_message.document.file_size
@@ -413,7 +413,7 @@ async def _splitS(bot, callbackQuery):
             )
             
             await downloadMessage.edit(
-                "`Uploading Completed..🤞`"
+                "`✅ - Berhasil mengupload🤞`"
             )
             
             PROCESS.remove(callbackQuery.message.chat.id)
@@ -435,7 +435,7 @@ async def _KsplitR(bot, callbackQuery):
         
         if callbackQuery.message.chat.id in PROCESS:
             await callbackQuery.answer(
-                "Work in progress..🙇"
+                "⏳ - Sedang dalam proses"
             )
             return
         
@@ -450,24 +450,24 @@ async def _KsplitR(bot, callbackQuery):
             if i >= 5:
                 await bot.send_message(
                     callbackQuery.message.chat.id,
-                    "`5 attempt over.. Process canceled..`😏"
+                    "`5 Percobaan berakhir, silahkan gagalkan`"
                 )
                 break
             
             i += 1
             
             needPages = await bot.ask(
-                text = f"__Pdf Split » By Range\nNow, Enter the range (start:end) :\nTotal halaman : __`{number_of_pages}` 🌟\n\n/exit __to cancel__",
+                text = f"__Pdf Split » By Range\nNow, Enter the range (start:end) :\nTotal halaman : __`{number_of_pages}` 🌟\n\n/keluar __untuk mengagalkan__",
                 chat_id = callbackQuery.message.chat.id,
                 reply_to_message_id = callbackQuery.message.message_id,
                 filters = filters.text,
                 reply_markup = ForceReply(True)
             )
             
-            if needPages.text == "/exit":
+            if needPages.text == "/keluar":
                 await bot.send_message(
                     callbackQuery.message.chat.id,
-                    "`Process Cancelled..` 😏"
+                    "`☑️ - Proses dibatalkan`"
                 )
                 break
             
@@ -581,7 +581,7 @@ async def _KsplitR(bot, callbackQuery):
                 caption = f"from `{pageStartAndEnd[0]}` to `{pageStartAndEnd[1]}`"
             )
             await downloadMessage.edit(
-                "`Uploading Completed..🤞`"
+                "`✅ - Berhasil mengupload🤞`"
             )
             
             PROCESS.remove(callbackQuery.message.chat.id)
@@ -596,13 +596,13 @@ async def _KsplitR(bot, callbackQuery):
             pass
 
 
-# Split (with unknown pdf page number)
+# Split (with tidak diketahui pdf page number)
 @ILovePDF.on_callback_query(KsplitS)
 async def _KsplitS(bot, callbackQuery):
     try:
         if callbackQuery.message.chat.id in PROCESS:
             await callbackQuery.answer(
-                "Work in progress..🙇"
+                "⏳ - Sedang dalam proses"
             )
             return
         
@@ -617,14 +617,14 @@ async def _KsplitS(bot, callbackQuery):
             if i >= 5:
                 bot.send_message(
                     callbackQuery.message.chat.id,
-                    "`5 attempt over.. Process canceled..`😏"
+                    "`5 Percobaan berakhir, silahkan gagalkan`"
                 )
                 break
             
             i += 1
             
             needPages = await bot.ask(
-                text = f"__Pdf Split » By Pages\nEnter Page Numbers seperate by__ (,) :\n__Total halaman : __`{number_of_pages}` 🌟\n\n/exit __to cancel__",
+                text = f"__Pdf Split » By Pages\nEnter Nomor halaman seperate by__ (,) :\n__Total halaman : __`{number_of_pages}` 🌟\n\n/keluar __untuk mengagalkan__",
                 chat_id = callbackQuery.message.chat.id,
                 reply_to_message_id = callbackQuery.message.message_id,
                 filters = filters.text,
@@ -632,10 +632,10 @@ async def _KsplitS(bot, callbackQuery):
             )
             
             singlePages = list(needPages.text.replace(',',':').split(':'))
-            if needPages.text == "/exit":
+            if needPages.text == "/keluar":
                 await bot.send_message(
                     callbackQuery.message.chat.id,
-                    "`Process Cancelled..` 😏"
+                    "`☑️ - Proses dibatalkan`"
                 )
                 break
             
@@ -658,7 +658,7 @@ async def _KsplitS(bot, callbackQuery):
             else:
                 await bot.send_message(
                     callbackQuery.message.chat.id,
-                    "`Something went Wrong..`😅"
+                    "`🔴 - Something went Wrong..`😅"
                 )
         
         if nabilanavab == True:
@@ -668,7 +668,7 @@ async def _KsplitS(bot, callbackQuery):
             downloadMessage = await bot.send_message(
                 chat_id = callbackQuery.message.chat.id,
                 reply_to_message_id = callbackQuery.message.message_id,
-                text = "`Downloding your pdf..`⏳"
+                text = "`📥 - Mendownload PDF`"
             )
             
             file_id = callbackQuery.message.reply_to_message.document.file_id
@@ -724,7 +724,7 @@ async def _KsplitS(bot, callbackQuery):
             )
             
             await downloadMessage.edit(
-                "`Uploading Completed..🤞`"
+                "`✅ - Berhasil mengupload🤞`"
             )
             
             PROCESS.remove(callbackQuery.message.chat.id)

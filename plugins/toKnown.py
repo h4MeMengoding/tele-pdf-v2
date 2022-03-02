@@ -26,7 +26,7 @@ Ukuran File : `{}`
 #--------> EDIT CHECKPDF MESSAGE (IF PDF & NOT ENCRYPTED)
 #------------------->
 
-# convert unknown to known page number msgs
+# convert tidak diketahui to known page number msgs
 async def toKnown(callbackQuery, number_of_pages):
     try:
         fileName = callbackQuery.message.reply_to_message.document.file_name

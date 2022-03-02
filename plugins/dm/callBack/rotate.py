@@ -1,4 +1,4 @@
-# fileName : plugins/dm/callBack/rotate.py
+# fileName : plugins/dm/callKembali/rotate.py
 # copyright ©️ 2021 nabilanavab
 
 
@@ -37,12 +37,12 @@ rotate = filters.create(lambda _, __, query: query.data == "rotate")
 Krotate = filters.create(lambda _, __, query: query.data.startswith("Krotate|"))
 
 
-# rotate PDF (unknown pg no)
+# rotate PDF (tidak diketahui pg no)
 @ILovePDF.on_callback_query(rotate)
 async def _rotate(bot, callbackQuery):
     try:
         await callbackQuery.edit_message_text(
-            "__Total halaman: Unknown 😐           \nRotate PDF in :__",
+            "__Total halaman: Tidak diketahui           \nRotate PDF in :__",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -67,7 +67,7 @@ async def _rotate(bot, callbackQuery):
                     ],
                     [
                         InlineKeyboardButton(
-                            "« Back «",
+                            "« Kembali «",
                             callback_data="BTPM"
                         )
                     ]
@@ -109,7 +109,7 @@ async def _Krotate(bot, callbackQuery):
                     ],
                     [
                         InlineKeyboardButton(
-                            "« Back «",
+                            "« Kembali «",
                             callback_data=f"KBTPM|{number_of_pages}"
                         )
                     ]
@@ -135,7 +135,7 @@ async def _rot(bot, callbackQuery):
         PROCESS.append(callbackQuery.message.chat.id)
         # STARTED DOWNLOADING
         downloadMessage = await callbackQuery.message.reply_to_message.reply(
-            "`Downloding your pdf..`⏳",
+            "`📥 - Mendownload PDF`",
         )
         input_file = f"{callbackQuery.message.message_id}/input.pdf"
         output_file = f"{callbackQuery.message.message_id}/rotate.pdf"
@@ -158,7 +158,7 @@ async def _rot(bot, callbackQuery):
             PROCESS.remove(callbackQuery.message.chat.id)
             return
         await downloadMessage.edit(
-            "`Started Rotating` 🤸"
+            "`Memulai Rotating`"
         )
         #CHECK PDF
         checked = await checkPdf(
@@ -199,7 +199,7 @@ async def _rot(bot, callbackQuery):
             callbackQuery.message.chat.id, "upload_document"
         )
         await downloadMessage.edit(
-            "`Started Uploading..`🏋️"
+            "`📤 - Mengirim file`"
         )
         # SEND ROTATED DOCUMENT
         await callbackQuery.message.reply_document(
@@ -224,7 +224,7 @@ async def _rot(bot, callbackQuery):
 async def _rot360(bot, callbackQuery):
     try:
         await callbackQuery.answer(
-            "You have Some big Problem..🙂"
+            "Ada masalah dalam memproses data"
         )
     except Exception:
         pass

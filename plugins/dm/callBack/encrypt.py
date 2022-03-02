@@ -24,7 +24,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 #--------> LOCAL VARIABLES
 #------------------->
 
-encryptedFileCaption = "Page Number : {}\nkey 🔐 : ||{}||"
+encryptedFileCaption = "Nomor halaman : {}\npassword 🔐 : ||{}||"
 
 
 pdfInfoMsg = """`Apa yang ingin saya lakukan dengan file ini?`
@@ -32,7 +32,7 @@ pdfInfoMsg = """`Apa yang ingin saya lakukan dengan file ini?`
 Nama FIle: `{}`
 Ukuran File: `{}`
 
-`Jumlah Halaman: {}`✌️
+`Jumlah Halaman: {}`
 """
 
 
@@ -52,7 +52,7 @@ async def _encrypt(bot, callbackQuery):
         # CHECKS IF BOT DOING ANY WORK
         if callbackQuery.message.chat.id in PROCESS:
             await callbackQuery.answer(
-                "Work in progress..🙇",
+                "⏳ - Sedang dalam proses",
             )
             return
         # CALLBACK DATA
@@ -63,7 +63,7 @@ async def _encrypt(bot, callbackQuery):
             if int(number_of_pages) >= 5000:
                 await bot.answer_callback_query(
                     callbackQuery.id,
-                    text="`Please send a pdf file less than 5000 pages` 🙄",
+                    text="`❗ - Silahkan kirim file PDF kurang dari 5000 halaman`",
                     show_alert=True,
                     cache_time=0
                 )
@@ -74,14 +74,14 @@ async def _encrypt(bot, callbackQuery):
         password=await bot.ask(
             chat_id=callbackQuery.message.chat.id,
             reply_to_message_id = callbackQuery.message.message_id,
-            text="__PDF Encryption »\nNow, please enter the password :__\n\n/exit __to cancel__",
+            text="__PDF Encryption »\nMasukkan password :__\n\n/keluar __untuk membatalkan__",
             filters=filters.text,
             reply_markup=ForceReply(True)
         )
         # CANCEL DECRYPTION PROCESS IF MESSAGE == /exit
-        if password.text == "/exit":
+        if password.text == "/keluar":
             await password.reply(
-                "`process canceled.. `😏"
+                "`☑️ - Proses dibatalkan`"
             )
             PROCESS.remove(callbackQuery.message.chat.id)
             return
@@ -110,12 +110,12 @@ async def _encrypt(bot, callbackQuery):
             PROCESS.remove(callbackQuery.message.chat.id)
             return
         await downloadMessage.edit(
-            "`Started Encrypting.. 🔐\nit might take some time..💤`",
+            "`🔐 - Memulai Encrypting\nmungkin membutuhkan waktu..`",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            "🚫Cancel",
+                            "🚫Batal🚫",
                             callback_data="closeme"
                         )
                     ]
@@ -134,7 +134,7 @@ async def _encrypt(bot, callbackQuery):
                 encrptPdf.save(
                     output_pdf,
                     encryption=fitz.PDF_ENCRYPT_AES_256,
-                    owner_pw="nabil",
+                    owner_pw="ilhamgud",
                     user_pw=f"{password.text}",
                     permissions=int(
                         fitz.PDF_PERM_ACCESSIBILITY |
@@ -145,7 +145,7 @@ async def _encrypt(bot, callbackQuery):
                 )
             else:
                 downloadMessage.edit(
-                    "__Encryption Error:\nplease send me a file less than 5000 pages__ 🥱"
+                    "__Encryption Error:\n Silahkan kirim file kurang dari 5000 halaman__"
                 )
                 PROCESS.remove(callbackQuery.message.chat.id)
                 shutil.rmtree(f"{callbackQuery.message.message_id}")
@@ -154,7 +154,7 @@ async def _encrypt(bot, callbackQuery):
             shutil.rmtree(f'{callbackQuery.message.message_id}')
             return
         await downloadMessage.edit(
-            "`Started Uploading..`🏋️"
+            "`📤 - Mengirim file`"
         )
         await bot.send_chat_action(
             callbackQuery.message.chat.id, "upload_document"

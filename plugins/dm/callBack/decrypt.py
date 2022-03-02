@@ -40,7 +40,7 @@ async def _decrypt(bot, callbackQuery):
         # CHECKS IF BOT DOING ANY WORK
         if callbackQuery.message.chat.id in PROCESS:
             await callbackQuery.answer(
-                "Work in progress..🙇",
+                "⏳ - Sedang dalam proses",
             )
             return
         # CALLBACK DATA
@@ -51,14 +51,14 @@ async def _decrypt(bot, callbackQuery):
         password=await bot.ask(
             chat_id=callbackQuery.message.chat.id,
             reply_to_message_id=callbackQuery.message.message_id,
-            text="__PDF Decryption »\nNow, please enter the password :__\n\n/exit __to cancel__",
+            text="__PDF Decryption »\nSekarang, silakan masukkan kata sandi :__\n\n/keluar __untuk membatalkan__",
             filters=filters.text,
             reply_markup=ForceReply(True)
         )
         # CANCEL DECRYPTION PROCESS IF MESSAGE == /exit
-        if password.text == "/exit":
+        if password.text == "/keluar":
             await password.reply(
-                "`process canceled.. 😪`"
+                "`☑️ - Proses dibatalkan`"
             )
             PROCESS.remove(callbackQuery.message.chat.id)
             return
@@ -87,13 +87,13 @@ async def _decrypt(bot, callbackQuery):
             PROCESS.remove(callbackQuery.message.chat.id)
             return
         await downloadMessage.edit(
-            "`Started Decrypting.. 🔐`"
+            "`🔐 - Started Decrypting`"
         )
         if data[0] != "K":
             checked = await checkPdf(f"{callbackQuery.message.message_id}/pdf.pdf", callbackQuery)
             if not(checked == "encrypted"):
                 await downloadMessage.edit(
-                    "File Not Encrypted..🙏🏻"
+                    "❗ - File tidak Encrypted"
                 )
                 PROCESS.remove(callbackQuery.message.chat.id)
                 shutil.rmtree(f"{callbackQuery.message.message_id}")
@@ -106,7 +106,7 @@ async def _decrypt(bot, callbackQuery):
                 )
         except Exception:
             await downloadMessage.edit(
-                f"Cannot Decrypt the file with `{password.text}` 🕸️"
+                f"❗ - Tidak dapat Decrypt file ini dengan `{password.text}`"
             )
             PROCESS.remove(callbackQuery.message.chat.id)
             shutil.rmtree(f"{callbackQuery.message.message_id}")
@@ -116,7 +116,7 @@ async def _decrypt(bot, callbackQuery):
             shutil.rmtree(f'{callbackQuery.message.message_id}')
             return
         await downloadMessage.edit(
-            "`Started Uploading..`🏋️"
+            "`📤 - Mengirim file`"
         )
         await bot.send_chat_action(
             callbackQuery.message.chat.id, "upload_document"

@@ -65,7 +65,7 @@ async def _pdfInfo(bot, callbackQuery):
         PROCESS.append(callbackQuery.message.chat.id)
         # DOWNLOADING STARTED
         downloadMessage = await callbackQuery.edit_message_text(
-            "`Downloding your pdf..`⏳",
+            "`📥 - Mendownload PDF`",
         )
         pdf_path = f"{callbackQuery.message.message_id}/pdfInfo.pdf"
         file_id = callbackQuery.message.reply_to_message.document.file_id
@@ -106,64 +106,64 @@ async def _pdfInfo(bot, callbackQuery):
             fileSize = callbackQuery.message.reply_to_message.document.file_size
             if isPdf and not(isEncrypted):
                 editedPdfReplyCb=InlineKeyboardMarkup(
+                [
                     [
-                        [
-                            InlineKeyboardButton(
-                                "⭐ get page No & info ⭐",
-                                callback_data=f"KpdfInfo|{number_of_pages}"
-                            )
-                        ],
-                        [
-                            InlineKeyboardButton(
-                                "To Images 🖼️",
-                                callback_data=f"KtoImage|{number_of_pages}"
-                            ),
-                            InlineKeyboardButton(
-                                "To Text ✏️",
-                                callback_data=f"KtoText|{number_of_pages}"
-                            )
-                        ],
-                        [
-                            InlineKeyboardButton(
-                                "Encrypt 🔐",
-                                callback_data=f"Kencrypt|{number_of_pages}"
-                            ),
-                            InlineKeyboardButton(
-                                "Decrypt 🔓",
-                                callback_data=f"notEncrypted"
-                            )
-                        ],
-                        [
-                            InlineKeyboardButton(
-                                "Compress 🗜️",
-                                callback_data=f"Kcompress"
-                            ),
-                            InlineKeyboardButton(
-                                "Rotate 🤸",
-                                callback_data=f"Krotate|{number_of_pages}"
-                            )
-                        ],
-                        [
-                            InlineKeyboardButton(
-                                "Split ✂️",
-                                callback_data=f"Ksplit|{number_of_pages}"
-                            ),
-                            InlineKeyboardButton(
-                                "Merge 🧬",
-                                callback_data="merge"
-                            )
-                        ],
-                        [
-                            InlineKeyboardButton(
-                                "Stamp ™️",
-                                callback_data=f"Kstamp|{number_of_pages}"
-                            ),
-                            InlineKeyboardButton(
-                                "Rename ✏️",
-                                callback_data="rename"
-                            )
-                        ]
+                        InlineKeyboardButton(
+                            "INFORMASI PDF",
+                            callback_data="pdfInfo"
+                        )
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            "TO IMAGE 🖼️",
+                            callback_data="toImage"
+                        ),
+                        InlineKeyboardButton(
+                            "TO TEXT ✏️",
+                            callback_data="toText"
+                        )
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            "ENCRYPT 🔐",
+                            callback_data="encrypt"
+                        ),
+                        InlineKeyboardButton(
+                            "DECRYPT 🔓",
+                            callback_data="decrypt"
+                        )
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            "COMPRESS 🗜️",
+                            callback_data="compress"
+                        ),
+                        InlineKeyboardButton(
+                            "ROTATE 🤸",
+                            callback_data="rotate"
+                        )
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            "SPLIT ✂️",
+                            callback_data="split"
+                        ),
+                        InlineKeyboardButton(
+                            "MERGE 🧬",
+                            callback_data="merge"
+                        )
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            "STAMP ™️",
+                            callback_data="stamp"
+                        ),
+                        InlineKeyboardButton(
+                            "RENAME ✏️",
+                            callback_data="rename"
+                        )
                     ]
+                ]
                 )
                 await callbackQuery.edit_message_text(
                     pdfInfoMsg.format(
@@ -193,12 +193,12 @@ async def _pdfInfo(bot, callbackQuery):
     except Exception as e:
         try:
             await callbackQuery.edit_message_text(
-                f"SOMETHING went WRONG.. 🐉\n\nERROR: {e}",
+                f"SOMETHING went WRONG.. \n\nERROR: {e}",
                 reply_markup = InlineKeyboardMarkup(
                     [
                         [
                             InlineKeyboardButton(
-                                "❌ Error in file ❌",
+                                "❌ - FIle error",
                                 callback_data = f"error"
                             )
                         ]
@@ -217,7 +217,7 @@ async def _KpdfInfo(bot, callbackQuery):
         _, number_of_pages = callbackQuery.data.split("|")
         await bot.answer_callback_query(
             callbackQuery.id,
-            text = f"Total {number_of_pages} pages 😉",
+            text = f"Total {number_of_pages} halaman",
             show_alert = True,
             cache_time = 0
         )
