@@ -37,6 +37,9 @@ feedbackMsg = """
 [Tulis feedback 📋](https://tellonym.me/Developer_InHame)
 """
 
+caraMsg = """
+[Cara Menyimpan PDF 💾](https://telegra.ph/Cara-Menyimpan-PDF-ke-Storage-02-20-2)
+"""
 
 button=InlineKeyboardMarkup(
         [
@@ -123,7 +126,7 @@ async def buat(bot, message):
             message.chat.id, "typing"
         )
         await bot.send_message(
-            message.chat.id, feedbackMsg,
+            message.chat.id, caraMsg,
             disable_web_page_preview = True
         )
         
