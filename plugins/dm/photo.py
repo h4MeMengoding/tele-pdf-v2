@@ -12,6 +12,7 @@ from pyrogram import filters
 from Configs.dm import Config
 from pyrogram import Client as ILovePDF
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from time import sleep
 
 
 
@@ -45,6 +46,12 @@ Anda diwajibkan untuk bergabung kedalam channel.
 Klik "refresh" jika sudah bergabung.. 
 """
 
+gmbrAlrt = """`*⏱️pesan akan terhapus dalam 8s
+    Note : Jika ingin menambahkan foto lainnya dalam satu pdf silahkan kirim foto sebelum melakukan /buat`
+
+/buat [Nama Filemu Bebas] - untuk membuat nama pdf
+/hapus - untuk menghapus semua halaman
+"""
 
 button=InlineKeyboardMarkup(
         [
@@ -126,6 +133,14 @@ async def images(bot, message):
         PDF[message.chat.id].append(img)
         await imageReply.edit(
             imageAdded.format(len(PDF[message.chat.id]))
+        )
+        alrtMsg = await bot.send_message(
+            message.chat.id, gmbrAlrt #untuk mengirim pesan peringatan
+        )
+        sleep(8)
+        await bot.delete_messages(
+            chat_id = message.chat.id,
+            message_ids = alrtMsg.message_id
         )
     except Exception:
         pass
