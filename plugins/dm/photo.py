@@ -91,9 +91,7 @@ async def images(bot, message):
                                 InlineKeyboardButton(
                                     "BERGABUNG",
                                     url=invite_link.invite_link
-                                )
-                            ],
-                            [
+                                ),
                                 InlineKeyboardButton(
                                     "REFRESH",
                                     callback_data="refresh"
