@@ -114,7 +114,7 @@ async def buat(bot, message):
             chat_id=message.chat.id,
             document=open(fileName, "rb"),
             thumb=Config.PDF_THUMBNAIL,
-            caption = f"ℹ️ - Nama File: `{fileName}`\n\n`📄 - Total halaman: {pgnmbr}`"
+            caption = f"ℹ️ - Nama File: `{fileName}`\n\n📄 - Total halaman: `{pgnmbr}`"
         )
         await gnrtMsgId.edit(
             "`✅ - Berhasil mengirim pdf`",
