@@ -53,7 +53,7 @@ exploreBotEdit = """
 """
 
 
-foolRefresh = """Cie boong, masuk channel dulu baru bisa gunain yaa..."""
+jikaboong = """Cie boong, masuk channel dulu baru bisa gunain yaa..."""
 
 #--------------->
 #--------> config vars
@@ -109,6 +109,12 @@ async def start(bot, message):
                                 InlineKeyboardButton(
                                     "REFRESH",
                                     callback_data = "refresh"
+                                )
+                            ],
+                            [
+                                InlineKeyboardButton(
+                                    "CARA MENGGUNAKAN",
+                                    url= "https://telegra.ph/Cara-Menyimpan-PDF-ke-Storage-02-20-2"
                                 )
                             ]
                         ]
@@ -278,7 +284,7 @@ async def _refresh(bot, callbackQuery):
             # IF NOT USER ALERT MESSAGE (AFTER CALLBACK)
             await bot.answer_callback_query(
                 callbackQuery.id,
-                text = foolRefresh,
+                text = jikaboong,
                 show_alert = True,
                 cache_time = 0
             )
