@@ -144,6 +144,12 @@ async def start(bot, message):
                             "TUTUP",
                             callback_data = "close"
                         )
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            "CARA MENGGUNAKAN",
+                            url= "https://telegra.ph/Cara-Menyimpan-PDF-ke-Storage-02-20-2"
+                        )
                     ]
                 ]
             )
