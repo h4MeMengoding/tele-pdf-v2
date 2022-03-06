@@ -1,5 +1,5 @@
 # fileName : plugins/checkPdf.py
-# copyright ©️ 2021 nabilanavab
+# copyright ©️ 2021 InHame Dev
 
 
 
@@ -101,4 +101,4 @@ async def checkPdf(file_path, callbackQuery):
         return "notPdf"
 
 
-#                                                                                  Telegram: @nabilanavab
+# Copyright InHame Dev

@@ -1,5 +1,5 @@
 # fileName : plugins/dm/Callback/pdfMetaData.py
-# copyright ©️ 2021 nabilanavab
+# copyright ©️ 2021 InHame Dev
 
 
 
@@ -225,4 +225,4 @@ async def _KpdfInfo(bot, callbackQuery):
         pass
 
 
-#                                                                                  Telegram: @nabilanavab
+# Copyright InHame Dev

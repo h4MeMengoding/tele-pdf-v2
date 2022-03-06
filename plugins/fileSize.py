@@ -1,5 +1,5 @@
 # fileName : plugins/fileSize.py
-# copyright ©️ 2021 nabilanavab
+# copyright ©️ 2021 InHame Dev
 
 
 
@@ -28,4 +28,4 @@ e.g:
 """
 
 
-#                                                                                  Telegram: @nabilanavab
+# Copyright InHame Dev

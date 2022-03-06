@@ -1,5 +1,5 @@
 # fileName : plugins/dm/callBack/merge.py
-# copyright ©️ 2021 nabilanavab
+# copyright ©️ 2021 InHame Dev
 
 
 
@@ -197,4 +197,4 @@ async def _merge(bot, callbackQuery):
             pass
 
 
-#                                                                                  Telegram: @nabilanavab
+# Copyright InHame Dev

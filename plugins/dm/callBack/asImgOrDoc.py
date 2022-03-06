@@ -1,5 +1,5 @@
 # fileName : plugins/dm/callKembali/asImgOrDoc.py
-# copyright ©️ 2021 nabilanavab
+# copyright ©️ 2021 InHame Dev
 
 
 
@@ -439,4 +439,4 @@ async def _KBTPM(bot, callbackQuery):
         pass
 
 
-#                                                                                  Telegram: @nabilanavab
+# Copyright InHame Dev

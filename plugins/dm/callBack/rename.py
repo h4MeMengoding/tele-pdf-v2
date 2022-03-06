@@ -1,5 +1,5 @@
 # fileName : plugins/dm/callBack/rename.py
-# copyright ©️ 2021 nabilanavab
+# copyright ©️ 2021 InHame Dev
 
 
 
@@ -114,4 +114,4 @@ async def _encrypt(bot, callbackQuery):
             pass
 
 
-#                                                                                  Telegram: @nabilanavab
+# Copyright InHame Dev

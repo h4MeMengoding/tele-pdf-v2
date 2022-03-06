@@ -1,5 +1,5 @@
 # fileName : plugins/dm/callKembali/rotate.py
-# copyright ©️ 2021 nabilanavab
+# copyright ©️ 2021 InHame Dev
 
 
 
@@ -230,4 +230,4 @@ async def _rot360(bot, callbackQuery):
         pass
 
 
-#                                                                                  Telegram: @nabilanavab
+# Copyright InHame Dev

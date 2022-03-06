@@ -1,5 +1,5 @@
 # fileName : plugins/dm/id.py
-# copyright ©️ 2021 nabilanavab
+# copyright ©️ 2021 InHame Dev
 
 
 
@@ -65,4 +65,4 @@ async def userId(bot, message):
         pass
 
 
-#                                                                                  Telegram: @nabilanavab
+# Copyright InHame Dev

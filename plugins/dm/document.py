@@ -1,5 +1,5 @@
 # fileName : plugins/dm/document.py
-# copyright ©️ 2021 nabilanavab
+# copyright ©️ 2021 InHame Dev
 
 
 
@@ -435,4 +435,4 @@ async def documents(bot, message):
         print("plugins/dm/document : ", e)
 
 
-#                                                                                  Telegram: @nabilanavab
+# Copyright InHame Dev

@@ -1,6 +1,6 @@
 # !/USR/BIN/PYTHON
 # -*- COADING: UTF-8 -*-
-# COPYRIGHT ©️ 2021 NABILANAVAB
+# copyright ©️ 2021 InHame Dev
 
 
 '''

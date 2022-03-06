@@ -1,5 +1,5 @@
 # fileName : plugins/dm/start.py
-# copyright ©️ 2021 nabilanavab
+# copyright ©️ 2021 InHame Dev
 
 
 
@@ -296,4 +296,4 @@ async def _close(bot, callbackQuery):
         print(e)
 
 
-#                                                                                  Telegram: @nabilanavab
+# Copyright InHame Dev

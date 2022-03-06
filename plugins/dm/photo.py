@@ -1,5 +1,5 @@
 # fileName : Plugins/dm/photo.py
-# copyright ©️ 2021 nabilanavab
+# copyright ©️ 2021 InHame Dev
 
 
 
@@ -47,7 +47,7 @@ Klik "refresh" jika sudah bergabung..
 """
 
 gmbrAlrt = """`*⏱️pesan akan terhapus dalam 8s
-    Note : Jika ingin menambahkan foto lainnya dalam satu pdf silahkan kirim foto sebelum melakukan /buat`
+Note : Jika ingin menambahkan foto lainnya dalam satu pdf silahkan kirim foto sebelum melakukan /buat`
 
 /buat [Nama Filemu Bebas] - untuk membuat nama pdf
 /hapus - untuk menghapus semua halaman
@@ -146,4 +146,4 @@ async def images(bot, message):
         pass
 
 
-#                                                                                  Telegram: @nabilanavab
+# Copyright InHame Dev

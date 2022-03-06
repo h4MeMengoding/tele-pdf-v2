@@ -1,5 +1,5 @@
 # fileName : Plugins/dm/feedback.py
-# copyright ©️ 2021 nabilanavab
+# copyright ©️ 2021 InHame Dev
 
 
 
@@ -72,4 +72,4 @@ async def feedback(bot, message):
         pass
 
 
-#                                                                                  Telegram: @nabilanavab
+# Copyright InHame Dev

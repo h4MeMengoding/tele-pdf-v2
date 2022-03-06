@@ -1,5 +1,5 @@
 # fileName : plugins/dm/waste.py
-# copyright ©️ 2021 nabilanavab
+# copyright ©️ 2021 InHame Dev
 
 
 
@@ -65,4 +65,4 @@ async def spam(bot, message):
         pass
 
 
-#                                                                                  Telegram: @nabilanavab
+# Copyright InHame Dev

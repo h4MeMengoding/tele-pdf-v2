@@ -1,5 +1,5 @@
 # fileName : plugins/dm/callBack/blaBla.py
-# copyright ©️ 2021 nabilanavab
+# copyright ©️ 2021 InHame Dev
 
 
 

@@ -1,5 +1,5 @@
 # fileName : plugins/toKnown.py
-# copyright ©️ 2021 nabilanavab
+# copyright ©️ 2021 InHame Dev
 
 
 
@@ -101,4 +101,4 @@ async def toKnown(callbackQuery, number_of_pages):
         print(f"plugins/toKnown: {e}")
 
 
-#                                                                                  Telegram: @nabilanavab
+# Copyright InHame Dev

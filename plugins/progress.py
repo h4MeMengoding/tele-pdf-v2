@@ -1,5 +1,5 @@
 # fileName : plugins/progress.py
-# copyright ©️ 2021 nabilanavab
+# copyright ©️ 2021 InHame Dev
 
 
 
@@ -71,4 +71,4 @@ def TimeFormatter(milliseconds: int) -> str:
     return tmp[:-2]
 
 
-#                                                                                  Telegram: @nabilanavab
+# Copyright InHame Dev
