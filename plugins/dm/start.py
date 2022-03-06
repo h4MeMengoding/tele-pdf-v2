@@ -26,7 +26,7 @@ Fitur utama yang tersedia:
 ➤ `Convert PDF to images`
 ➤ `Convert files to pdf`
 
-Note : Mungkin masih ada beberapa fitur yang tidak dapat berfungsi (bug), semua sedang dalam pengembangan. Terimakasih
+Note : Mungkin ada beberapa fitur yang tidak dapat digunakan (bug), semua sedang dalam development. Terimakasih
 """
 
 
