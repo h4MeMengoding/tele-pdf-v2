@@ -59,12 +59,12 @@ async def _EXTRACT(bot, callbackQuery):
         
         # ACCEPTING PAGE NUMBER
         if data in ["IA", "DA"]:
-            nabilanavab = False
+            inhame = False
         # RANGE (START:END)
         elif data in ["IR", "DR"]:
-            nabilanavab = True; i = 0
+            inhame = True; i = 0
             # 5 EXCEPTION, BREAK MERGE PROCESS
-            while(nabilanavab):
+            while(inhame):
                 if i >= 5:
                     await bot.send_message(
                         callbackQuery.message.chat.id,
@@ -102,7 +102,7 @@ async def _EXTRACT(bot, callbackQuery):
                     if start.isdigit() and end.isdigit():
                         if (1 <= int(pageStartAndEnd[0])):
                             if (int(pageStartAndEnd[0]) < int(pageStartAndEnd[1])):
-                                nabilanavab = False
+                                inhame = False
                                 break
                             else:
                                 await bot.send_message(
@@ -128,9 +128,9 @@ async def _EXTRACT(bot, callbackQuery):
         # SINGLE PAGES
         else:
             newList = []
-            nabilanavab = True; i = 0
+            inhame = True; i = 0
             # 5 REQUEST LIMIT
-            while(nabilanavab):
+            while(inhame):
                 if i >= 5:
                     await bot.send_message(
                         callbackQuery.message.chat.id,
@@ -162,7 +162,7 @@ async def _EXTRACT(bot, callbackQuery):
                         if i.isdigit():
                             newList.append(i)
                     if newList != []:
-                        nabilanavab = False
+                        inhame = False
                         break
                     # AFTER SORTING (IF NO DIGIT PAGES RETURN)
                     elif newList == []:
@@ -176,10 +176,10 @@ async def _EXTRACT(bot, callbackQuery):
                         callbackQuery.message.chat.id,
                         "`🔴 - Something went Wrong..`"
                     )
-        if nabilanavab == True:
+        if inhame == True:
             PROCESS.remove(callbackQuery.message.chat.id)
             return
-        if nabilanavab == False:
+        if inhame == False:
             # DOWNLOAD MESSAGE
             downloadMessage = await bot.send_message(
                 chat_id = callbackQuery.message.chat.id,
@@ -646,10 +646,10 @@ async def _KEXTRACT(bot, callbackQuery):
         _, number_of_pages = callbackQuery.data.split("|")
         PROCESS.append(callbackQuery.message.chat.id)
         if data in ["KIA", "KDA"]:
-            nabilanavab = False
+            inhame = False
         elif data in ["KIR", "KDR"]:
-            nabilanavab = True; i = 0
-            while(nabilanavab):
+            inhame = True; i = 0
+            while(inhame):
                 if i >= 5:
                     await bot.send_message(
                         callbackQuery.message.chat.id,
@@ -682,7 +682,7 @@ async def _KEXTRACT(bot, callbackQuery):
                     if start.isdigit() and end.isdigit():
                         if (1 <= int(pageStartAndEnd[0])):
                             if int(pageStartAndEnd[0]) < int(pageStartAndEnd[1]) and int(pageStartAndEnd[1]) <= int(number_of_pages):
-                                nabilanavab = False
+                                inhame = False
                                 break
                             else:
                                 await bot.send_message(
@@ -706,8 +706,8 @@ async def _KEXTRACT(bot, callbackQuery):
                     )
         elif data in ["KIS", "KDS"]:
             newList = []
-            nabilanavab = True; i = 0
-            while(nabilanavab):
+            inhame = True; i = 0
+            while(inhame):
                 if i >= 5:
                     await bot.send_message(
                         callbackQuery.message.chat.id,
@@ -734,7 +734,7 @@ async def _KEXTRACT(bot, callbackQuery):
                         if i.isdigit() and int(i) <= int(number_of_pages):
                             newList.append(i)
                     if newList != []:
-                        nabilanavab = False
+                        inhame = False
                         break
                     elif newList == []:
                         await bot.send_message(
@@ -747,10 +747,10 @@ async def _KEXTRACT(bot, callbackQuery):
                         callbackQuery.message.chat.id,
                         "`100 page is enough..`"
                     )
-        if nabilanavab == True:
+        if inhame == True:
             PROCESS.remove(callbackQuery.message.chat.id)
             return
-        if nabilanavab == False:
+        if inhame == False:
             downloadMessage = await bot.send_message(
                 chat_id = callbackQuery.message.chat.id,
                 reply_to_message_id = callbackQuery.message.message_id,
