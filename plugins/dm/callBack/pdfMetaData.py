@@ -1,8 +1,10 @@
-# fileName : plugins/dm/Callback/pdfMetaData.py
-# copyright ©️ 2021 InHame Dev
+'''
 
+█ █▄ █    █▄█ ▄▀▄ █▄ ▄█ ██▀    █▀▄ █▀▄ █▀ 
+█ █ ▀█    █ █ █▀█ █ ▀ █ █▄▄    █▀  █▄▀ █▀ 
+                        Dev : IlhamGUD
 
-
+'''
 
 import fitz
 import time
@@ -10,7 +12,7 @@ import shutil
 from pdf import PROCESS
 from pyrogram import filters
 from plugins.progress import progress
-from pyrogram import Client as ILovePDF
+from pyrogram import Client as InHamePDF
 from plugins.fileSize import get_size_format as gSF
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
@@ -43,7 +45,7 @@ pdfInfo = filters.create(lambda _, __, query: query.data == "pdfInfo")
 KpdfInfo = filters.create(lambda _, __, query: query.data.startswith("KpdfInfo"))
 
 
-@ILovePDF.on_callback_query(pdfInfo)
+@InHamePDF.on_callback_query(pdfInfo)
 async def _pdfInfo(bot, callbackQuery):
     try:
         # CHECKS PROCESS
@@ -211,7 +213,7 @@ async def _pdfInfo(bot, callbackQuery):
             pass
 
 
-@ILovePDF.on_callback_query(KpdfInfo)
+@InHamePDF.on_callback_query(KpdfInfo)
 async def _KpdfInfo(bot, callbackQuery):
     try:
         _, number_of_pages = callbackQuery.data.split("|")

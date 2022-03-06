@@ -1,8 +1,10 @@
-# fileName : plugins/progress.py
-# copyright ©️ 2021 InHame Dev
+'''
 
+█ █▄ █    █▄█ ▄▀▄ █▄ ▄█ ██▀    █▀▄ █▀▄ █▀ 
+█ █ ▀█    █ █ █▀█ █ ▀ █ █▄▄    █▀  █▄▀ █▀ 
+                        Dev : IlhamGUD
 
-
+'''
 
 import time, math
 from pyrogram.types import Message

@@ -1,8 +1,10 @@
-# fileName : plugins/dm/buat.py
-# copyright ©️ 2021 InHame Dev
+'''
 
+█ █▄ █    █▄█ ▄▀▄ █▄ ▄█ ██▀    █▀▄ █▀▄ █▀ 
+█ █ ▀█    █ █ █▀█ █ ▀ █ █▄▄    █▀  █▄▀ █▀ 
+                        Dev : IlhamGUD
 
-
+'''
 
 import os
 import shutil
@@ -10,7 +12,7 @@ from pdf import PDF
 from time import sleep
 from pyrogram import filters
 from Configs.dm import Config
-from pyrogram import Client as ILovePDF
+from pyrogram import Client as InHamePDF
 from pyrogram.types import InlineKeyboardButton
 from pyrogram.types import InlineKeyboardMarkup
 
@@ -57,7 +59,7 @@ button=InlineKeyboardMarkup(
 #------------------->
 
 
-@ILovePDF.on_message(filters.private & filters.command(["buat"]) & ~filters.edited)
+@InHamePDF.on_message(filters.private & filters.command(["buat"]) & ~filters.edited)
 async def buat(bot, message):
     try:
         if (message.chat.id in BANNED_USERS) or (

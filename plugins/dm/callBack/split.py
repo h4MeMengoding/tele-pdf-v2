@@ -1,8 +1,10 @@
-# fileName : plugins/dm/callKembali/split.py
-# copyright ©️ 2021 InHame Dev
+'''
 
+█ █▄ █    █▄█ ▄▀▄ █▄ ▄█ ██▀    █▀▄ █▀▄ █▀ 
+█ █ ▀█    █ █ █▀█ █ ▀ █ █▄▄    █▀  █▄▀ █▀ 
+                        Dev : IlhamGUD
 
-
+'''
 
 import time
 import shutil
@@ -13,7 +15,7 @@ from Configs.dm import Config
 from plugins.checkPdf import checkPdf
 from plugins.progress import progress
 from pyrogram.types import ForceReply
-from pyrogram import Client as ILovePDF
+from pyrogram import Client as InHamePDF
 from PyPDF2 import PdfFileWriter, PdfFileReader
 from plugins.fileSize import get_size_format as gSF
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
@@ -47,7 +49,7 @@ KsplitS = filters.create(lambda _, __, query: query.data.startswith("KsplitS|"))
 
 
 # Split pgNo (with tidak diketahui pdf page number)
-@ILovePDF.on_callback_query(split)
+@InHamePDF.on_callback_query(split)
 async def _split(bot, callbackQuery):
     try:
         await callbackQuery.edit_message_text(
@@ -80,7 +82,7 @@ async def _split(bot, callbackQuery):
 
 
 # Split pgNo (with known pdf page number)
-@ILovePDF.on_callback_query(Ksplit)
+@InHamePDF.on_callback_query(Ksplit)
 async def _Ksplit(bot, callbackQuery):
     try:
         _, number_of_pages = callbackQuery.data.split("|")
@@ -114,7 +116,7 @@ async def _Ksplit(bot, callbackQuery):
 
 
 # Split (with tidak diketahui pdf page number)
-@ILovePDF.on_callback_query(splitR)
+@InHamePDF.on_callback_query(splitR)
 async def _splitROrS(bot, callbackQuery):
     try:
         if callbackQuery.message.chat.id in PROCESS:
@@ -125,8 +127,8 @@ async def _splitROrS(bot, callbackQuery):
         
         PROCESS.append(callbackQuery.message.chat.id)
         
-        nabilanavab = True; i = 0
-        while(nabilanavab):
+        inhame = True; i = 0
+        while(inhame):
             
             if i >= 5:
                 await bot.send_message(
@@ -169,7 +171,7 @@ async def _splitROrS(bot, callbackQuery):
                     if (1 <= int(pageStartAndEnd[0])):
                         
                         if (int(pageStartAndEnd[0]) < int(pageStartAndEnd[1])):
-                            nabilanavab = False
+                            inhame = False
                             break
                         
                         else:
@@ -193,10 +195,10 @@ async def _splitROrS(bot, callbackQuery):
                     "`Syntax Error: noEndingPageNumber Or notADigit`"
                 )
         
-        if nabilanavab == True:
+        if inhame == True:
             PROCESS.remove(callbackQuery.message.chat.id)
         
-        if nabilanavab == False:
+        if inhame == False:
             downloadMessage = await bot.send_message(
                 chat_id = callbackQuery.message.chat.id,
                 reply_to_message_id = callbackQuery.message.message_id,
@@ -282,7 +284,7 @@ async def _splitROrS(bot, callbackQuery):
 
 
 # Split (with tidak diketahui pdf page number)
-@ILovePDF.on_callback_query(splitS)
+@InHamePDF.on_callback_query(splitS)
 async def _splitS(bot, callbackQuery):
     try:
         if callbackQuery.message.chat.id in PROCESS:
@@ -294,8 +296,8 @@ async def _splitS(bot, callbackQuery):
         PROCESS.append(callbackQuery.message.chat.id)
         
         newList = []
-        nabilanavab = True; i = 0
-        while(nabilanavab):
+        inhame = True; i = 0
+        while(inhame):
             
             if i >= 5:
                 bot.send_message(
@@ -329,7 +331,7 @@ async def _splitS(bot, callbackQuery):
                         if i.isdigit():
                             newList.append(i)
                     if newList != []:
-                        nabilanavab = False
+                        inhame = False
                         break
                     elif newList == []:
                         await bot.send_message(
@@ -346,10 +348,10 @@ async def _splitS(bot, callbackQuery):
                     "`🔴 - Something went Wrong..`😅"
                 )
         
-        if nabilanavab == True:
+        if inhame == True:
             PROCESS.remove(callbackQuery.message.chat.id)
         
-        if nabilanavab == False:
+        if inhame == False:
             downloadMessage = await bot.send_message(
                 chat_id = callbackQuery.message.chat.id,
                 reply_to_message_id = callbackQuery.message.message_id,
@@ -429,7 +431,7 @@ async def _splitS(bot, callbackQuery):
 
 
 # Split (with known pdf page number)
-@ILovePDF.on_callback_query(KsplitR)
+@InHamePDF.on_callback_query(KsplitR)
 async def _KsplitR(bot, callbackQuery):
     try:
         
@@ -444,8 +446,8 @@ async def _KsplitR(bot, callbackQuery):
         _, number_of_pages = callbackQuery.data.split("|")
         number_of_pages = int(number_of_pages)
         
-        nabilanavab = True; i = 0
-        while(nabilanavab):
+        inhame = True; i = 0
+        while(inhame):
             
             if i >= 5:
                 await bot.send_message(
@@ -488,7 +490,7 @@ async def _KsplitR(bot, callbackQuery):
                     if (int(1) <= int(start) and int(start) < number_of_pages):
                         
                         if (int(start) < int(end) and int(end) <= number_of_pages):
-                            nabilanavab = False
+                            inhame = False
                             break
                         
                         else:
@@ -512,10 +514,10 @@ async def _KsplitR(bot, callbackQuery):
                     "`Syntax Error: noSuchPageNumbers` 🚶"
                 )
         
-        if nabilanavab == True:
+        if inhame == True:
             PROCESS.remove(callbackQuery.message.chat.id)
         
-        if nabilanavab == False:
+        if inhame == False:
             downloadMessage = await bot.send_message(
                 chat_id = callbackQuery.message.chat.id,
                 reply_to_message_id = callbackQuery.message.message_id,
@@ -597,7 +599,7 @@ async def _KsplitR(bot, callbackQuery):
 
 
 # Split (with tidak diketahui pdf page number)
-@ILovePDF.on_callback_query(KsplitS)
+@InHamePDF.on_callback_query(KsplitS)
 async def _KsplitS(bot, callbackQuery):
     try:
         if callbackQuery.message.chat.id in PROCESS:
@@ -611,8 +613,8 @@ async def _KsplitS(bot, callbackQuery):
         _, number_of_pages = callbackQuery.data.split("|")
         
         newList = []
-        nabilanavab = True; i = 0
-        while(nabilanavab):
+        inhame = True; i = 0
+        while(inhame):
             
             if i >= 5:
                 bot.send_message(
@@ -651,7 +653,7 @@ async def _KsplitS(bot, callbackQuery):
                         )
                         continue
                     else:
-                        nabilanavab = False
+                        inhame = False
                         break
                 except Exception:
                     pass
@@ -661,10 +663,10 @@ async def _KsplitS(bot, callbackQuery):
                     "`🔴 - Something went Wrong..`😅"
                 )
         
-        if nabilanavab == True:
+        if inhame == True:
             PROCESS.remove(callbackQuery.message.chat.id)
         
-        if nabilanavab == False:
+        if inhame == False:
             downloadMessage = await bot.send_message(
                 chat_id = callbackQuery.message.chat.id,
                 reply_to_message_id = callbackQuery.message.message_id,

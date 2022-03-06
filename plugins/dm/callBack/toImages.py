@@ -1,8 +1,10 @@
-# fileName : plugins/dm/callBack/toImage.py
-# copyright ©️ 2021 InHame Dev
+'''
 
+█ █▄ █    █▄█ ▄▀▄ █▄ ▄█ ██▀    █▀▄ █▀▄ █▀ 
+█ █ ▀█    █ █ █▀█ █ ▀ █ █▄▄    █▀  █▄▀ █▀ 
+                        Dev : IlhamGUD
 
-
+'''
 
 import os
 import fitz
@@ -16,7 +18,7 @@ from Configs.dm import Config
 from plugins.checkPdf import checkPdf
 from plugins.progress import progress
 from pyrogram.types import ForceReply
-from pyrogram import Client as ILovePDF
+from pyrogram import Client as InHamePDF
 from plugins.fileSize import get_size_format as gSF
 from pyrogram.types import InputMediaPhoto, InputMediaDocument
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
@@ -43,7 +45,7 @@ KEXTRACT = filters.create(lambda _, __, query: query.data.startswith(tuple(KcbEx
 
 
 # Extract pgNo (with tidak diketahui pdf page number)
-@ILovePDF.on_callback_query(EXTRACT)
+@InHamePDF.on_callback_query(EXTRACT)
 async def _EXTRACT(bot, callbackQuery):
     try:
         # CALLBACK DATA
@@ -634,7 +636,7 @@ async def _EXTRACT(bot, callbackQuery):
 
 
 # Extract pgNo (with known pdf page number)
-@ILovePDF.on_callback_query(KEXTRACT)
+@InHamePDF.on_callback_query(KEXTRACT)
 async def _KEXTRACT(bot, callbackQuery):
     try:
         if callbackQuery.message.chat.id in PROCESS:

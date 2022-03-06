@@ -1,8 +1,10 @@
-# fileName : plugins/dm/callBack/merge.py
-# copyright ©️ 2021 InHame Dev
+'''
 
+█ █▄ █    █▄█ ▄▀▄ █▄ ▄█ ██▀    █▀▄ █▀▄ █▀ 
+█ █ ▀█    █ █ █▀█ █ ▀ █ █▄▄    █▀  █▄▀ █▀ 
+                        Dev : IlhamGUD
 
-
+'''
 
 import os
 import time
@@ -15,7 +17,7 @@ from Configs.dm import Config
 from PyPDF2 import PdfFileMerger
 from plugins.checkPdf import checkPdf
 from plugins.progress import progress
-from pyrogram import Client as ILovePDF
+from pyrogram import Client as InHamePDF
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
@@ -43,7 +45,7 @@ PDF_THUMBNAIL = Config.PDF_THUMBNAIL
 merge = filters.create(lambda _, __, query: query.data == "merge")
 
 
-@ILovePDF.on_callback_query(merge)
+@InHamePDF.on_callback_query(merge)
 async def _merge(bot, callbackQuery):
     try:
         # CHECK IF BOT DOING ANY WORK
@@ -60,14 +62,14 @@ async def _merge(bot, callbackQuery):
         MERGE[callbackQuery.message.chat.id] = [fileId]
         MERGEsize[callbackQuery.message.chat.id] = [fileSize]
         # REQUEST FOR OTHER PDFS FOR MERGING
-        nabilanavab = True; size = 0
-        while(nabilanavab):
+        inhame = True; size = 0
+        while(inhame):
             if len(MERGE[callbackQuery.message.chat.id]) >= 5:
                 await bot.send_message(
                     callbackQuery.message.chat.id,
                     "__❗ - Karena Overload, Anda hanya dapat menggabungkan 5 pdf sekaligus__"
                 )
-                nabilanavab = False
+                inhame = False
                 break
             askPDF = await bot.ask(
                 text = "__MERGE pdfs » Jumlah pdf dalam antrian: {}__\n\n/keluar __untuk membatalkan__\n/merge __untuk merge__".format(
@@ -87,7 +89,7 @@ async def _merge(bot, callbackQuery):
                 del MERGEsize[callbackQuery.message.chat.id]
                 break
             if askPDF.text == "/merge":
-                nabilanavab = False
+                inhame = False
                 break
             # IS SEND MESSAGE A DOCUMENT
             if askPDF.document:
@@ -106,16 +108,16 @@ async def _merge(bot, callbackQuery):
                             callbackQuery.message.chat.id,
                             f"`Karena overload bot hanya mendukung %sMb pdf..`"%(MAX_FILE_SIZE if MAX_FILE_SIZE else "1.8Gb")
                         )
-                        nabilanavab=False
+                        inhame=False
                         break
                     # ADDING NEWLY ADDED PDF FILE ID & SIZE TO LIST
                     MERGE[callbackQuery.message.chat.id].append(file_id)
                     MERGEsize[callbackQuery.message.chat.id].append(file_size)
-        # nabilanavab=True ONLY IF PROCESS CANCELLED
-        if nabilanavab == True:
+        # inhame=True ONLY IF PROCESS CANCELLED
+        if inhame == True:
             PROCESS.remove(callbackQuery.message.chat.id)
         # GET /merge, REACHES MAX FILE SIZE OR MAX NO OF PDF
-        if nabilanavab == False:
+        if inhame == False:
             # DISPLAY TOTAL PDFS FOR MERGING
             downloadMessage = await callbackQuery.message.reply_text(
                 f"`Total PDF : {len(MERGE[callbackQuery.message.chat.id])}`",

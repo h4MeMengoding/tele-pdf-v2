@@ -1,8 +1,10 @@
-# fileName : plugins/dm/document.py
-# copyright ©️ 2021 InHame Dev
+'''
 
+█ █▄ █    █▄█ ▄▀▄ █▄ ▄█ ██▀    █▀▄ █▀▄ █▀ 
+█ █ ▀█    █ █ █▀█ █ ▀ █ █▄▄    █▀  █▄▀ █▀ 
+                        Dev : IlhamGUD
 
-
+'''
 
 import os
 import fitz
@@ -14,7 +16,7 @@ from time import sleep
 from pdf import invite_link
 from pyrogram import filters
 from Configs.dm import Config
-from pyrogram import Client as ILovePDF
+from pyrogram import Client as InHamePDF
 from plugins.fileSize import get_size_format as gSF
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
@@ -199,7 +201,7 @@ ADMINS=Config.ADMINS
 #------------------->
 
 
-@ILovePDF.on_message(filters.private & filters.document & ~filters.edited)
+@InHamePDF.on_message(filters.private & filters.document & ~filters.edited)
 async def documents(bot, message):
     try:
         global invite_link

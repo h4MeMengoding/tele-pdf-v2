@@ -1,8 +1,10 @@
-# fileName : plugins/dm/callKembali/rotate.py
-# copyright ©️ 2021 InHame Dev
+'''
 
+█ █▄ █    █▄█ ▄▀▄ █▄ ▄█ ██▀    █▀▄ █▀▄ █▀ 
+█ █ ▀█    █ █ █▀█ █ ▀ █ █▄▄    █▀  █▄▀ █▀ 
+                        Dev : IlhamGUD
 
-
+'''
 
 import time
 import shutil
@@ -11,7 +13,7 @@ from pyrogram import filters
 from Configs.dm import Config
 from plugins.checkPdf import checkPdf
 from plugins.progress import progress
-from pyrogram import Client as ILovePDF
+from pyrogram import Client as InHamePDF
 from PyPDF2 import PdfFileWriter, PdfFileReader
 from plugins.fileSize import get_size_format as gSF
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
@@ -38,7 +40,7 @@ Krotate = filters.create(lambda _, __, query: query.data.startswith("Krotate|"))
 
 
 # rotate PDF (tidak diketahui pg no)
-@ILovePDF.on_callback_query(rotate)
+@InHamePDF.on_callback_query(rotate)
 async def _rotate(bot, callbackQuery):
     try:
         await callbackQuery.edit_message_text(
@@ -79,7 +81,7 @@ async def _rotate(bot, callbackQuery):
 
 
 # rotate PDF (only change in back button)
-@ILovePDF.on_callback_query(Krotate)
+@InHamePDF.on_callback_query(Krotate)
 async def _Krotate(bot, callbackQuery):
     try:
         _, number_of_pages = callbackQuery.data.split("|")
@@ -120,7 +122,7 @@ async def _Krotate(bot, callbackQuery):
         pass
 
 
-@ILovePDF.on_callback_query(rot)
+@InHamePDF.on_callback_query(rot)
 async def _rot(bot, callbackQuery):
     try:
         # CALLBACK DATA
@@ -220,7 +222,7 @@ async def _rot(bot, callbackQuery):
             pass
 
 
-@ILovePDF.on_callback_query(rot360)
+@InHamePDF.on_callback_query(rot360)
 async def _rot360(bot, callbackQuery):
     try:
         await callbackQuery.answer(

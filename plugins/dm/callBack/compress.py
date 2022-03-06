@@ -1,8 +1,10 @@
-# fileName : plugins/dm/callBack/compress.py
-# copyright ©️ 2021 InHame Dev
+'''
 
+█ █▄ █    █▄█ ▄▀▄ █▄ ▄█ ██▀    █▀▄ █▀▄ █▀ 
+█ █ ▀█    █ █ █▀█ █ ▀ █ █▄▄    █▀  █▄▀ █▀ 
+                        Dev : IlhamGUD
 
-
+'''
 
 import os
 import time
@@ -13,7 +15,7 @@ from pyrogram import filters
 from Configs.dm import Config
 from plugins.checkPdf import checkPdf
 from plugins.progress import progress
-from pyrogram import Client as ILovePDF
+from pyrogram import Client as InHamePDF
 from plugins.fileSize import get_size_format as gSF
 from PDFNetPython3.PDFNetPython import PDFDoc, Optimizer, SDFDoc, PDFNet
 
@@ -39,7 +41,7 @@ PDF_THUMBNAIL=Config.PDF_THUMBNAIL
 compress = filters.create(lambda _, __, query: query.data in ["compress", "Kcompress"])
 
 
-@ILovePDF.on_callback_query(compress)
+@InHamePDF.on_callback_query(compress)
 async def _compress(bot, callbackQuery):
     try:
         # CHECKS IF BOT DOING ANY WORK
@@ -111,7 +113,7 @@ async def _compress(bot, callbackQuery):
             "`📤 - Mengirim file`"
         )
         await callbackQuery.message.reply_document(
-            file_name="nabil.pdf", quote=True,
+            file_name="inhame.pdf", quote=True,
             document=open(output_file, "rb"),
             thumb=PDF_THUMBNAIL,
             caption=compressedCaption.format(

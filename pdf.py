@@ -1,10 +1,3 @@
-# !/USR/BIN/PYTHON
-# -*- COADING: UTF-8 -*-
-# copyright ©️ 2021 InHame Dev
-
-
-
-
 '''
 
 █ █▄ █    █▄█ ▄▀▄ █▄ ▄█ ██▀    █▀▄ █▀▄ █▀ 
@@ -12,7 +5,6 @@
                         Dev : IlhamGUD
 
 '''
-
 
 import logging
 from pyromod import listen
@@ -41,7 +33,7 @@ plugin = dict(
 
 # PYROGRAM BOT AUTHENTIFICATION
 bot = Client(
-    "ILovePDF",
+    "InHamePDF",
     plugins = plugin,
     api_id = Config.API_ID,
     parse_mode = "markdown",

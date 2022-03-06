@@ -1,12 +1,14 @@
-# fileName : plugins/dm/callBack/blaBla.py
-# copyright ©️ 2021 InHame Dev
+'''
 
+█ █▄ █    █▄█ ▄▀▄ █▄ ▄█ ██▀    █▀▄ █▀▄ █▀ 
+█ █ ▀█    █ █ █▀█ █ ▀ █ █▄▄    █▀  █▄▀ █▀ 
+                        Dev : IlhamGUD
 
-
+'''
 
 from pdf import PROCESS
 from pyrogram import filters
-from pyrogram import Client as ILovePDF
+from pyrogram import Client as InHamePDF
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
@@ -22,7 +24,7 @@ underDev = filters.create(lambda _, __, query: query.data == "underDev")
 notEncrypted = filters.create(lambda _, __, query: query.data == "notEncrypted")
 
 
-@ILovePDF.on_callback_query(underDev)
+@InHamePDF.on_callback_query(underDev)
 async def _underDev(bot, callbackQuery):
     try:
         await callbackQuery.answer(
@@ -32,7 +34,7 @@ async def _underDev(bot, callbackQuery):
         pass
 
 
-@ILovePDF.on_callback_query(error)
+@InHamePDF.on_callback_query(error)
 async def _error(bot, callbackQuery):
     try:
         await callbackQuery.answer(
@@ -42,7 +44,7 @@ async def _error(bot, callbackQuery):
         pass
 
 
-@ILovePDF.on_callback_query(closeme)
+@InHamePDF.on_callback_query(closeme)
 async def _closeme(bot, callbackQuery):
     try:
         try:
@@ -57,7 +59,7 @@ async def _closeme(bot, callbackQuery):
         pass
 
 
-@ILovePDF.on_callback_query(notEncrypted)
+@InHamePDF.on_callback_query(notEncrypted)
 async def _notEncrypted(bot, callbackQuery):
     try:
         await callbackQuery.answer(

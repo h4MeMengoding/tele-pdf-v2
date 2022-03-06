@@ -48,4 +48,4 @@ class Config(object):
         BANNED_USERS = []
     
     # thumbnail
-    PDF_THUMBNAIL = "./thumbnail.jpeg"
+    PDF_THUMBNAIL = "./tmb.jpg"

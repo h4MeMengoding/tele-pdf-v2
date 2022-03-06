@@ -1,8 +1,10 @@
-# fileName : plugins/dm/callKembali/stamp.py
-# copyright ©️ 2021 InHame Dev
+'''
 
+█ █▄ █    █▄█ ▄▀▄ █▄ ▄█ ██▀    █▀▄ █▀▄ █▀ 
+█ █ ▀█    █ █ █▀█ █ ▀ █ █▄▄    █▀  █▄▀ █▀ 
+                        Dev : IlhamGUD
 
-
+'''
 
 import os
 import time
@@ -14,7 +16,7 @@ from pyrogram import filters
 from Configs.dm import Config
 from plugins.checkPdf import checkPdf
 from plugins.progress import progress
-from pyrogram import Client as ILovePDF
+from pyrogram import Client as InHamePDF
 from plugins.fileSize import get_size_format as gSF
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
@@ -69,7 +71,7 @@ color = filters.create(lambda _, __, query: query.data.startswith(tuple(colors))
 
 
 # stamp selet message(with tidak diketahui pdf page number)
-@ILovePDF.on_callback_query(stamp)
+@InHamePDF.on_callback_query(stamp)
 async def _stamp(bot, callbackQuery):
     try:
         await callbackQuery.edit_message_text(
@@ -109,7 +111,7 @@ async def _stamp(bot, callbackQuery):
 
 
 # Stamp select message (with known pdf page number)
-@ILovePDF.on_callback_query(Kstamp)
+@InHamePDF.on_callback_query(Kstamp)
 async def _Kstamp(bot, callbackQuery):
     try:
         _, number_of_pages = callbackQuery.data.split("|")
@@ -150,7 +152,7 @@ async def _Kstamp(bot, callbackQuery):
 
 
 # Stamp color message (with tidak diketahui pdf page number)
-@ILovePDF.on_callback_query(stmp)
+@InHamePDF.on_callback_query(stmp)
 async def _stmp(bot, callbackQuery):
     try:
         _, annot = callbackQuery.data.split("|")
@@ -181,7 +183,7 @@ async def _stmp(bot, callbackQuery):
 
 
 # Stamp color message (with known pdf page number)
-@ILovePDF.on_callback_query(Kstmp)
+@InHamePDF.on_callback_query(Kstmp)
 async def _Kstmp(bot, callbackQuery):
     try:
         _, number_of_pages, annot = callbackQuery.data.split("|")
@@ -211,7 +213,7 @@ async def _Kstmp(bot, callbackQuery):
         pass
 
 
-@ILovePDF.on_callback_query(color)
+@InHamePDF.on_callback_query(color)
 async def _color(bot, callbackQuery):
     try:
         # CHECK IF USER IN PROCESS

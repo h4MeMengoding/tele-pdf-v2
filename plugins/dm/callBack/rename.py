@@ -1,8 +1,10 @@
-# fileName : plugins/dm/callBack/rename.py
-# copyright ©️ 2021 InHame Dev
+'''
 
+█ █▄ █    █▄█ ▄▀▄ █▄ ▄█ ██▀    █▀▄ █▀▄ █▀ 
+█ █ ▀█    █ █ █▀█ █ ▀ █ █▄▄    █▀  █▄▀ █▀ 
+                        Dev : IlhamGUD
 
-
+'''
 
 import os
 import time
@@ -12,7 +14,7 @@ from pyrogram import filters
 from Configs.dm import Config
 from plugins.progress import progress
 from pyrogram.types import ForceReply
-from pyrogram import Client as ILovePDF
+from pyrogram import Client as InHamePDF
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
@@ -32,7 +34,7 @@ PDF_THUMBNAIL = Config.PDF_THUMBNAIL
 rename = filters.create(lambda _, __, query: query.data.startswith("rename"))
 
 
-@ILovePDF.on_callback_query(rename)
+@InHamePDF.on_callback_query(rename)
 async def _encrypt(bot, callbackQuery):
     try:
         # CHECKS PROCESS

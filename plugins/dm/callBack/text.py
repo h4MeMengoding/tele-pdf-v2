@@ -1,8 +1,10 @@
-# fileName : plugins/dm/callBack/text.py
-# copyright ©️ 2021 InHame Dev
+'''
 
+█ █▄ █    █▄█ ▄▀▄ █▄ ▄█ ██▀    █▀▄ █▀▄ █▀ 
+█ █ ▀█    █ █ █▀█ █ ▀ █ █▄▄    █▀  █▄▀ █▀ 
+                        Dev : IlhamGUD
 
-
+'''
 
 import time
 import fitz
@@ -12,7 +14,7 @@ from pyrogram import filters
 from Configs.dm import Config
 from plugins.checkPdf import checkPdf
 from plugins.progress import progress
-from pyrogram import Client as ILovePDF
+from pyrogram import Client as InHamePDF
 from plugins.fileSize import get_size_format as gSF
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
@@ -63,7 +65,7 @@ KtoText = filters.create(lambda _, __, query: query.data.startswith("KtoText|"))
 
 
 # pdf to images (with tidak diketahui pdf page number)
-@ILovePDF.on_callback_query(toText)
+@InHamePDF.on_callback_query(toText)
 async def _toText(bot, callbackQuery):
     try:
         await callbackQuery.edit_message_text(
@@ -104,7 +106,7 @@ async def _toText(bot, callbackQuery):
 
 
 # pdf to images (with known page Number)
-@ILovePDF.on_callback_query(KtoText)
+@InHamePDF.on_callback_query(KtoText)
 async def _KtoText(bot, callbackQuery):
     try:
         _, number_of_pages = callbackQuery.data.split("|")
@@ -146,7 +148,7 @@ async def _KtoText(bot, callbackQuery):
 
 
 # to Text file (with tidak diketahui pdf page number)
-@ILovePDF.on_callback_query(T)
+@InHamePDF.on_callback_query(T)
 async def _T(bot, callbackQuery):
     try:
         # CHECH USER PROCESS
@@ -221,7 +223,7 @@ async def _T(bot, callbackQuery):
 
 
 # to Text message (with tidak diketahui pdf page number)
-@ILovePDF.on_callback_query(M)
+@InHamePDF.on_callback_query(M)
 async def _M(bot, callbackQuery):
     try:
         if callbackQuery.message.chat.id in PROCESS:
@@ -286,7 +288,7 @@ async def _M(bot, callbackQuery):
 
 
 # to Html file (with tidak diketahui pdf page number)
-@ILovePDF.on_callback_query(H)
+@InHamePDF.on_callback_query(H)
 async def _H(bot, callbackQuery):
     try:
         if callbackQuery.message.chat.id in PROCESS:
@@ -359,7 +361,7 @@ async def _H(bot, callbackQuery):
 
 
 # to Text file (with tidak diketahui pdf page number)
-@ILovePDF.on_callback_query(J)
+@InHamePDF.on_callback_query(J)
 async def _J(bot, callbackQuery):
     try:
         if callbackQuery.message.chat.id in PROCESS:

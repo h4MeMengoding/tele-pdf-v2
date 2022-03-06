@@ -1,12 +1,14 @@
-# fileName : Plugins/dm/feedback.py
-# copyright ©️ 2021 InHame Dev
+'''
 
+█ █▄ █    █▄█ ▄▀▄ █▄ ▄█ ██▀    █▀▄ █▀▄ █▀ 
+█ █ ▀█    █ █ █▀█ █ ▀ █ █▄▄    █▀  █▄▀ █▀ 
+                        Dev : IlhamGUD
 
-
+'''
 
 from pyrogram import filters
 from Configs.dm import Config
-from pyrogram import Client as ILovePDF
+from pyrogram import Client as InHamePDF
 from pyrogram.types import InlineKeyboardButton
 from pyrogram.types import InlineKeyboardMarkup
 
@@ -49,7 +51,7 @@ button=InlineKeyboardMarkup(
 #------------------->
 
 
-@ILovePDF.on_message(filters.private & filters.command(["feedback"]) & ~filters.edited)
+@InHamePDF.on_message(filters.private & filters.command(["feedback"]) & ~filters.edited)
 async def feedback(bot, message):
     try:
         await bot.send_chat_action(

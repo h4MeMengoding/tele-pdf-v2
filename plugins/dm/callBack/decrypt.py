@@ -1,8 +1,10 @@
-# fileName : plugins/dm/callBack/decrypt.py
-# copyright ©️ 2021 InHame Dev
+'''
 
+█ █▄ █    █▄█ ▄▀▄ █▄ ▄█ ██▀    █▀▄ █▀▄ █▀ 
+█ █ ▀█    █ █ █▀█ █ ▀ █ █▄▄    █▀  █▄▀ █▀ 
+                        Dev : IlhamGUD
 
-
+'''
 
 import time
 import fitz
@@ -14,7 +16,7 @@ from Configs.dm import Config
 from plugins.progress import progress
 from plugins.checkPdf import checkPdf
 from pyrogram.types import ForceReply
-from pyrogram import Client as ILovePDF
+from pyrogram import Client as InHamePDF
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
@@ -34,7 +36,7 @@ decrypts = ["decrypt", "Kdecrypt"]
 decrypt = filters.create(lambda _, __, query: query.data.startswith(tuple(decrypts)))
 
 
-@ILovePDF.on_callback_query(decrypt)
+@InHamePDF.on_callback_query(decrypt)
 async def _decrypt(bot, callbackQuery):
     try:
         # CHECKS IF BOT DOING ANY WORK

@@ -1,8 +1,10 @@
-# fileName : Plugins/dm/photo.py
-# copyright ©️ 2021 InHame Dev
+'''
 
+█ █▄ █    █▄█ ▄▀▄ █▄ ▄█ ██▀    █▀▄ █▀▄ █▀ 
+█ █ ▀█    █ █ █▀█ █ ▀ █ █▄▄    █▀  █▄▀ █▀ 
+                        Dev : IlhamGUD
 
-
+'''
 
 import os
 from pdf import PDF
@@ -10,7 +12,7 @@ from PIL import Image
 from pdf import invite_link
 from pyrogram import filters
 from Configs.dm import Config
-from pyrogram import Client as ILovePDF
+from pyrogram import Client as InHamePDF
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from time import sleep
 
@@ -69,7 +71,7 @@ button=InlineKeyboardMarkup(
 #------------------->
 
 
-@ILovePDF.on_message(filters.private & ~filters.edited & filters.photo)
+@InHamePDF.on_message(filters.private & ~filters.edited & filters.photo)
 async def images(bot, message):
     try:
         global invite_link

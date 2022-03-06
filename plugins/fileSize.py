@@ -1,8 +1,10 @@
-# fileName : plugins/fileSize.py
-# copyright ©️ 2021 InHame Dev
+'''
 
+█ █▄ █    █▄█ ▄▀▄ █▄ ▄█ ██▀    █▀▄ █▀▄ █▀ 
+█ █ ▀█    █ █ █▀█ █ ▀ █ █▄▄    █▀  █▄▀ █▀ 
+                        Dev : IlhamGUD
 
-
+'''
 
 #--------------->
 #--------> SIZE FORMATER (TO HUMAN READABLE FORM)

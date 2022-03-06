@@ -1,11 +1,14 @@
-# fileName : plugins/dm/callKembali/asImgOrDoc.py
-# copyright ©️ 2021 InHame Dev
 
+'''
 
+█ █▄ █    █▄█ ▄▀▄ █▄ ▄█ ██▀    █▀▄ █▀▄ █▀ 
+█ █ ▀█    █ █ █▀█ █ ▀ █ █▄▄    █▀  █▄▀ █▀ 
+                        Dev : IlhamGUD
 
+'''
 
 from pyrogram import filters
-from pyrogram import Client as ILovePDF
+from pyrogram import Client as InHamePDF
 from plugins.fileSize import get_size_format as gSF
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
@@ -126,7 +129,7 @@ KD = filters.create(lambda _, __, query: query.data.startswith("KD|"))
 
 
 # Extract pgNo (with tidak diketahui pdf page number)
-@ILovePDF.on_callback_query(I)
+@InHamePDF.on_callback_query(I)
 async def _I(bot, callbackQuery):
     try:
         await callbackQuery.edit_message_text(
@@ -165,7 +168,7 @@ async def _I(bot, callbackQuery):
 
 
 # Extract pgNo (with tidak diketahui pdf page number)
-@ILovePDF.on_callback_query(D)
+@InHamePDF.on_callback_query(D)
 async def _D(bot, callbackQuery):
     try:
         await callbackQuery.edit_message_text(
@@ -204,7 +207,7 @@ async def _D(bot, callbackQuery):
 
 
 # Extract pgNo (with known pdf page number)
-@ILovePDF.on_callback_query(KI)
+@InHamePDF.on_callback_query(KI)
 async def _KI(bot, callbackQuery):
     try:
         _, number_of_pages = callbackQuery.data.split("|")
@@ -244,7 +247,7 @@ async def _KI(bot, callbackQuery):
 
 
 # Extract pgNo (with known pdf page number)
-@ILovePDF.on_callback_query(KD)
+@InHamePDF.on_callback_query(KD)
 async def _KD(bot, callbackQuery):
     try:
         _, number_of_pages = callbackQuery.data.split("|")
@@ -283,7 +286,7 @@ async def _KD(bot, callbackQuery):
         pass
 
 # pdf to images (with tidak diketahui pdf page number)
-@ILovePDF.on_callback_query(toImage)
+@InHamePDF.on_callback_query(toImage)
 async def _toImage(bot, callbackQuery):
     try:
         await callbackQuery.edit_message_text(
@@ -314,7 +317,7 @@ async def _toImage(bot, callbackQuery):
 
 
 # pdf to images (with known page Number)
-@ILovePDF.on_callback_query(KtoImage)
+@InHamePDF.on_callback_query(KtoImage)
 async def _KtoImage(bot, callbackQuery):
     try:
         _, number_of_pages = callbackQuery.data.split("|")
@@ -346,7 +349,7 @@ async def _KtoImage(bot, callbackQuery):
 
 
 # back to pdf message (tidak diketahui page number)
-@ILovePDF.on_callback_query(BTPM)
+@InHamePDF.on_callback_query(BTPM)
 async def _BTPM(bot, callbackQuery):
     try:
         fileName=callbackQuery.message.reply_to_message.document.file_name
@@ -363,7 +366,7 @@ async def _BTPM(bot, callbackQuery):
 
 
 # back to pdf message (with known page Number)
-@ILovePDF.on_callback_query(KBTPM)
+@InHamePDF.on_callback_query(KBTPM)
 async def _KBTPM(bot, callbackQuery):
     try:
         fileName = callbackQuery.message.reply_to_message.document.file_name

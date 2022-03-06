@@ -1,12 +1,14 @@
-# fileName : plugins/dm/id.py
-# copyright ©️ 2021 InHame Dev
+'''
 
+█ █▄ █    █▄█ ▄▀▄ █▄ ▄█ ██▀    █▀▄ █▀▄ █▀ 
+█ █ ▀█    █ █ █▀█ █ ▀ █ █▄▄    █▀  █▄▀ █▀ 
+                        Dev : IlhamGUD
 
-
+'''
 
 from pyrogram import filters
 from Configs.dm import Config
-from pyrogram import Client as ILovePDF
+from pyrogram import Client as InHamePDF
 from pyrogram.types import InlineKeyboardButton
 from pyrogram.types import InlineKeyboardMarkup
 
@@ -71,7 +73,7 @@ __Rename__ (merubah nama file pdf)
 #------------------->
 
 
-@ILovePDF.on_message(filters.private & ~filters.edited & filters.command(["menu"]))
+@InHamePDF.on_message(filters.private & ~filters.edited & filters.command(["menu"]))
 async def userId(bot, message):
     try:
         await bot.send_chat_action(
