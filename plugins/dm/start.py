@@ -148,7 +148,7 @@ async def start(bot, message):
                     [
                         InlineKeyboardButton(
                             "CARA MENGGUNAKAN",
-                            url= "https://telegra.ph/Cara-Menyimpan-PDF-ke-Storage-02-20-2"
+                            url= "https://telegra.ph/Cara-Menggunakan-InHame-PDF-Bot-03-06"
                         )
                     ]
                 ]
